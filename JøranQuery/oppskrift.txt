@@ -1,0 +1,21 @@
+Sette opp modellen:
+    - knappene for å lage ny, se aktive og ferdige spørreundersøkelser
+    - navn på spørreundersøkelsen (med input felt)
+    - ferdig lagde spørsmål og svar
+    -knapp for å lage et nytt spørsmål
+    -checkbox(?) for å velge om spørreundersøkelsen skal være anonym
+    -checkbox(?) og input felt for tidsfrist 
+    -checkbox(?) og knapp for valg om hvem som skal delta på undersøkelsen
+    -knapp for publisering
+
+
+
+
+
+
+
+
+
+    å kan vi begynne å programmere. Begynn med modellen. Gå gjennom skjermbilde for skjermbilde 
+    og bygg opp en modell som har nok informasjon til å tegne opp alle skjermbildene. Få tilbakemelding 
+    fra lærerne på modellen før dere går videre.
