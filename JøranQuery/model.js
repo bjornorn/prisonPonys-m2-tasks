@@ -14,7 +14,7 @@ For hver side:
 const model = {
   //admin Navigation blocks
   infoBlocks: {
-    info1: 'header',
+    info1: 'header22222',
     info2: 'createNewQuery',
     info3: 'watchActiveQueries',
     info4: 'showEndedQueries',
@@ -85,15 +85,7 @@ const model = {
   },
 
   //Query Result
-//admin Navigation blocks
-  infoBlocks1: {
-    info1: 'header',
-    info2: 'createNewQuery',
-    info3: 'watchActiveQueries',
-    info4: 'showEndedQueries',
-  },
       // former Query
-
     formerQuery: {
       Query1: "Spørreundersøkelse 24.01.2020",
       Query2: "Spørreundersøkelse 05.03.2020",
