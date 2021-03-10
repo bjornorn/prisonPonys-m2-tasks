@@ -15,7 +15,7 @@ Sette opp modellen:
     -Anonymous DefineID med forslag til function løsning 
     -Spørsmål med svar alternativer
     -gå til forrige Spørsmål
-    gå til neste Spørsmål
+    -gå til neste Spørsmål
 
 
 

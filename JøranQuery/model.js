@@ -86,7 +86,7 @@ const model = {
 
   //Query Result
 //admin Navigation blocks
-  infoBlocks: {
+  infoBlocks1: {
     info1: 'header',
     info2: 'createNewQuery',
     info3: 'watchActiveQueries',
@@ -99,97 +99,67 @@ const model = {
       Query2: "Spørreundersøkelse 05.03.2020",
       Query3: "Spørreundersøkelse 16.07.2020",
       Query4: "Spørreundersøkelse 04.06.2020",
-    }
+    },
 
     // Query Results 
     // here we have 2 options to consider and that we will have to make out in the team . both will be commented out for convincence 
 
     //option 1 everything in diffrent obj. makes the code longer and kinda easier to deal with . 
-    // QueryResult{
-    //   CurrentQuery: "Spørreundersøkelse 19.02.2021"}
-    //   queryQuestion1: {
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
-    //   queryQuestion2: {
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
-    
-    //   queryQuestion3: {
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
-    
-    //   queryQuestion4: {
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
+    QueryResult:{
+       CurrentQuery: "Spørreundersøkelse 19.02.2021"},
+        queryQuestion1: {
+          questionField: 'question',
+           answerField1: 'answer1',
+           answerField2: 'answer2',
+           answerField3: 'answer3',}
+    ,
+      queryQuestion2: {
+       questionField: 'question',
+         answerField1: 'answer1',
+         answerField2: 'answer2',
+         answerField3: 'answer3',
+    },
+  
+    queryQuestion3: {
+        questionField: 'question',
+          answerField1: 'answer1',
+          answerField2: 'answer2',
+          answerField3: 'answer3',
+    },
+  
+    queryQuestion4: {
+      questionField: 'question',
+      answerField1: 'answer1',
+      answerField2: 'answer2',
+      answerField3: 'answer3',
+    },
 
-
-     
-    //option 2 makes an obj string. a little bit harder but more neat 
-    //  wich can be easly parsed with QueryResult.queryQuestion1 method . and takes up less space over all 
-    // QueryResult[{
-    //   CurrentQuery: "Spørreundersøkelse 19.02.2021"
-    //   queryQuestion1: {
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
-    //   queryQuestion2: {
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
-    
-    //   queryQuestion3: { 
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
-    
-    //   queryQuestion4: {
-    //     questionField: 'question',
-    //     answerField1: 'answer1',
-    //     answerField2: 'answer2',
-    //     answerField3: 'answer3',
-    //   },
-    // }]
-   
-    //PDF file
-    toPDF{
+     //PDF file
+    toPDF:{
       PdF: "Last ned PDF"
-    }
+    },
    //spørreskjema 
     //dette er hva bruker ser 
       QueryView: {
-        CurrentQuery: "Spørreundersøkelse 19.02.2021"
+        CurrentQuery: "Spørreundersøkelse 19.02.2021"},
+
         //Defined ID
-        Anonymous:"Denne testen er ikke anonym og vil bli loggført med BrukerID"
+        Anonymous: {textField: "Denne testen er ikke anonym og vil bli loggført med BrukerID"},
         //add Function with Return Value True or false from  defineAnonymous:
          
          
-             questionField:{ 'question',
+             questionFieldBlock: {
+               questionField: 'question',
                answerField1: 'answer1',
                answerField2: 'answer2',
-               answerField3: 'answer3',}
-      }
+               answerField3: 'answer3',},
+      
       //go to last question
-      lastQuestion:"forige spørsmål"
+      lastQuestionBox: {
+      lastQuestionButton: "forrige spørsmål"},
       //go to next question 
-      nextQuestion:"Neste spørsmål"
+      nextQuestionBox: {
+      nextQuestionBox:"Neste spørsmål"}
 
     
 
