@@ -7,9 +7,15 @@ Sette opp modellen:
     -checkbox(?) og input felt for tidsfrist 
     -checkbox(?) og knapp for valg om hvem som skal delta på undersøkelsen
     -knapp for publisering
-
-
-
+    -formerQuery added. 
+    -query Result med 2 alternativer vi kan velge av .
+    -toPDF : last ned til PDF knapp 
+    -QueryView hva bruker ser 
+    -CurrentQuerry nåværende Query
+    -Anonymous DefineID med forslag til function løsning 
+    -Spørsmål med svar alternativer
+    -gå til forrige Spørsmål
+    gå til neste Spørsmål
 
 
 
