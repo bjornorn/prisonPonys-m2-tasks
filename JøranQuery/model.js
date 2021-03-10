@@ -94,7 +94,7 @@ const model = {
     },
 
     // Query Results 
-    // here we have 2 options to consider and that we will have to make out in the team . both will be commented out for convincence 
+   
 
     //option 1 everything in diffrent obj. makes the code longer and kinda easier to deal with . 
     QueryResult:{
@@ -133,18 +133,18 @@ const model = {
    //spørreskjema 
     //dette er hva bruker ser 
       QueryView: {
-        CurrentQuery: "Spørreundersøkelse 19.02.2021"},
+        CurrentQuery: "Spørreundersøkelse 04.06.2021"},
 
         //Defined ID
         Anonymous: {textField: "Denne testen er ikke anonym og vil bli loggført med BrukerID"},
         //add Function with Return Value True or false from  defineAnonymous:
          
-         
-             questionFieldBlock: {
-               questionField: 'question',
-               answerField1: 'answer1',
-               answerField2: 'answer2',
-               answerField3: 'answer3',},
+                //lik som model.JS linje 29 
+    queryQuestion1Answerd: {
+      questionField: 'question',
+      answerField1: 'answer1',
+      answerField2: 'answer2',
+      answerField3: 'answer3',},
       
       //go to last question
       lastQuestionBox: {
