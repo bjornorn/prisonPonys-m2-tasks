@@ -22,6 +22,3 @@ Sette opp modellen:
 
 
 
-    å kan vi begynne å programmere. Begynn med modellen. Gå gjennom skjermbilde for skjermbilde 
-    og bygg opp en modell som har nok informasjon til å tegne opp alle skjermbildene. Få tilbakemelding 
-    fra lærerne på modellen før dere går videre.

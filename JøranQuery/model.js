@@ -7,10 +7,7 @@ For hver side:
  - Noe data er felles for flere sider
  - Alle inputs er også felt i modellen - disse kan vi lagre per side
 */
-//  Kloning av et obj
-// const obj = { one: 1, two: 2 };
 
-// const obj2 = obj;
 const model = {
   //admin Navigation blocks
   infoBlocks: {
@@ -24,6 +21,7 @@ const model = {
     addQueryText: 'Skriv navn på spørreundersøkelsen her:',
     questionField: 'question',
     queryId: 'queryIdNumber',
+    queryDateCreated: 'crationDate'
   },
   //question blocks
   queryQuestion1: {
@@ -131,20 +129,21 @@ const model = {
       PdF: "Last ned PDF"
     },
    //spørreskjema 
-    //dette er hva bruker ser 
-      QueryView: {
+    //dette er hva bruker ser her blir det litt duplikasjon men dette blir på en måte et stand alone "objekt" 
+    //da det er hva brukeren får etter publikasjon
+      queryView: {
         CurrentQuery: "Spørreundersøkelse 04.06.2021"},
 
         //Defined ID
-        Anonymous: {textField: "Denne testen er ikke anonym og vil bli loggført med BrukerID"},
+        anonymous: {textField: "Denne testen er ikke anonym og vil bli loggført med BrukerID"},
         //add Function with Return Value True or false from  defineAnonymous:
          
                 //lik som model.JS linje 29 
     queryQuestion1Answerd: {
-      questionField: 'question',
-      answerField1: 'answer1',
-      answerField2: 'answer2',
-      answerField3: 'answer3',},
+      questionField: 'Question',
+      answerField1: 'Answer1',
+      answerField2: 'Answer2',
+      answerField3: 'Answer3',},
       
       //go to last question
       lastQuestionBox: {
