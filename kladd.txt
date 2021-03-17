@@ -1,0 +1,7 @@
+  <a href="#" class="Time_Registering"<link1></a>
+    <a href="#" class="Prosjekt_Regestering"<link2></a>
+    <a href="#" class="Oversikt_timer"<link3></a>
+    <a href="#" class="OversiktProsjekter"<link4></a>
+    </div>`;
+
+  <div class="timeRegisterSheetContent">${(Object.values(dayTimeRegister)[i])}</div>

@@ -10,6 +10,7 @@ function projectRegister() {
 
 function hoursOverview() {
     updateView();
+    hoursOverviewPage();
     
 } 
 
