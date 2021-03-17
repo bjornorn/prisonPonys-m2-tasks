@@ -11,7 +11,7 @@ For hver side:
 const model = {
   //admin Navigation blocks
   infoBlocks: {
-    info1: 'header22222',
+    info1: 'header',
     info2: 'createNewQuery',
     info3: 'watchActiveQueries',
     info4: 'showEndedQueries',
