@@ -27,7 +27,7 @@ function hoursRegisterSheet() {
 
 function hoursOverviewPage() {
     html += `<div class="hoursOverviewClass"><h2>Registrerte timer</h2></div>`;
-    html += `<div>${registerListMarch)}</div>`;
+    html += `<div>${registerListMarch}</div>`;
     
 
     document.getElementById("app").innerHTML = html;    
