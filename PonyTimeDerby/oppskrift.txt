@@ -1,0 +1,9 @@
+MÅL 1: Lage timeregistrering side som ser akseptabel ut
+
+# Lage updateView - i PTDview.js & PonytimeDerby.html 
+# Lage enkel CSS for sidebar og navButtons
+
+* Lage et objekt for en dag i model.js
+* Lage SIDEBAR med dummy linker - til bruk på alle sider <h1> </h1>
+
+MÅL 2:
