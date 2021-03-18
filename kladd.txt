@@ -5,3 +5,54 @@
     </div>`;
 
   <div class="timeRegisterSheetContent">${(Object.values(dayTimeRegister)[i])}</div>
+
+
+
+
+
+input[type=text] {
+    display:flex;
+    flex-wrap: wrap;
+    background-color:limegreen; 
+    color:white;
+    
+    bottom:100px;
+    
+input {
+    display: flex;
+    flex-wrap: wrap;
+    display: block;
+    clear:none;
+    float: inline-start;
+    bottom:40vh;
+    margin-left:4vw;
+    width:4vw;
+    height:5vh;
+    
+    }
+background-color: blueviolet;
+display: block;
+left:50%;
+margin-left:30vh;
+top:50%;
+margin-top:5vh;
+position: relative;
+width: 80vw;
+height: 10vh; 
+/* padding: 1vh; */
+    
+}
+
+.hoursRegisterSheetContent{
+background-color: hotpink; 
+display: block;
+right
+margin-left:40vh;
+top:50%;
+margin-top:;
+position: relative;
+width: 80vw;
+height: 10vh; 
+
+
+&nbsp
