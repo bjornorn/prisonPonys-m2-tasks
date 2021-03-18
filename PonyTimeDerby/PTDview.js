@@ -17,13 +17,14 @@ let html = '';
     // TEGNE OPP NY REGISTRERING FELT
     function hoursRegisterSheet() {
         html += `<div class="hoursRegisterSheet">`;
-        html += `<div><h2>Ny Registrering</h2></div>`;
+        html += `<div><h2>Ny Registrering</h2></div>`; 
+        html += `<table class="hoursRegisterSheetContent">`;       
         for (let i = 0; i < hoursSheetForm.length; i++) {
-            html += `<div class="hoursRegisterSheetContent">${hoursSheetForm[i]}:<input type="text"></div>
-           
-            `;             
+            html += `<tr><td>${hoursSheetForm[i]}:</td><td><input type="text"></td></tr>`;   
+            
         };
-        html += `<button class="hoursRegisterSheetContent reg" type="button">Registrer</button>`;
+        html += `</table>`;
+        html += `<button class="button">Registrer</button>`;
         html += `</div>`;
 
     // TEGNE OPP "TIMER I DAG FELT"
