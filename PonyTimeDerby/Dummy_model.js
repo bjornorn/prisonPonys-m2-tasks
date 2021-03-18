@@ -20,6 +20,7 @@ currentDate = new Date;
 dateIsNow = currentDate.toLocaleDateString();
 currentHour = currentDate.getHours();
 currentMinute = currentDate.getMinutes();
+if (currentMinute < 10) {currentMinute = '0' + currentMinute.toString()} 
 timeIsNow = currentHour + ':' + currentMinute;
 
 // new prosject object
