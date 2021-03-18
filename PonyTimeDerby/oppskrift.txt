@@ -1,9 +1,13 @@
-MÅL 1: Lage timeregistrering side som ser akseptabel ut
+FERDIG: Lage timeregistrering side som ser akseptabel ut
 
 # Lage updateView - i PTDview.js & PonytimeDerby.html 
 # Lage enkel CSS for sidebar og navButtons
+# Lage et objekt for en dag i model.js
+# Lage SIDEBAR med dummy linker - til bruk på alle sider <h1> </h1>
+# Timeregistering: Lage en form for kalenderfelt
+# Timeregistering: lage felt for hva som er registrert i dag
 
-* Lage et objekt for en dag i model.js
-* Lage SIDEBAR med dummy linker - til bruk på alle sider <h1> </h1>
-
-MÅL 2:
+AKTIVE OPPGAVER:
+* Lage "PROSJEKT REGISTERING" view
+* Lage funksjon for å registrere prosjekt
+* Lage funksjon for "registrer timer"

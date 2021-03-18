@@ -1,5 +1,7 @@
 //SIDENAVIGERING
 
+//husk a "wrappe" alt i ett object som heter model
+
 const navButtons = [
     "Time Registrering",
     "Prosjekt Registrering",

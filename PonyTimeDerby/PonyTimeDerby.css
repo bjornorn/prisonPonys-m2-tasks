@@ -1,10 +1,23 @@
-body {
-    background-color: darkgray;
-    margin: 0px;
-    width:100vh;
-    height:100vh;
-    display:flex;
-    flex-direction:row;
+
+html, body {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    font-size:auto;
+}
+#app {
+    background-color: #2C2F33;
+    width:100vw;
+    height: 100vh;
+    overflow: hidden; 
+    font-family: verdana;
+    display: inline-block; 
+    
+    
+    /* display:flex; */
+    /* flex-direction:column; */
 }
 
 /* .header {
@@ -16,28 +29,28 @@ body {
 } */
 
 .sidebar{
-    display:flex;
-    flex-wrap:wrap;
-background-color:lightgray;
-border: 2px solid black;
-width:15vw;
-height:99vh;
-float: left;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:#23272A;
+    width: 12vw;
+    height: 99vh;
+    float: left;
+    padding-top: 10px;
 
 } 
 
 .navButtons{
-display:flex;
-flex-wrap:wrap;
-background-color:lightslategrey;
-border: 2px solid aqua;
-width:14vw;
-height:10vh;
-margin: 5px;
-border-radius: 20px;
-text-align: center;
-font-size: large;
-font-family: Verdana;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:rgb(61, 66, 71);
+    color: #99AAB5;
+    width: 14vw;
+    height: 9vh;
+    margin: 5px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.5vw;
+    padding-top: 5px;
 }
 
 /* husk altid background-image:none; ellers kan du få opp bilde fra lenker etc  */
@@ -51,51 +64,138 @@ font-family: Verdana;
     display: flex;
     flex-wrap:wrap;
     background-image:none; 
-    background-color:white;
+    background-color:rgb(61, 61, 61);
     color: black;
 }
 
 .hoursRegisterSheet{
-    background-color: blueviolet;
-    display: block;
-left:50%;
-  margin-left:30vh;
-  top:50%;
-  margin-top:5vh;
-  position: relative;
-  width: 80vw;
-height: 10vh; 
-/* padding: 1vh; */
-    
+    border-radius:12px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: lightgrey;
+    position:absolute;
+     width:82vw;
+    height:45vh;
+    left:15vw;
+    top:50vh;
+    Font-size:inherit;
+    z-index:0;
+   
 }
 
 .hoursRegisterSheetContent{
-background-color: hotpink; 
+ /* posisjon */
+ z-index: 1;
+  display: block;
+    display: inline block;
+    flex: wrap; 
+ position:fixed; 
+    top:60vh; 
+    left:18vw;
+    /* float: left;
+    clear:both; */
 
-display: block;
-position:absolute;
-padding: 2px;
+ /* størrelse */
+ width:40vW;
+height:7vh;
+ 
+ /* utseende */
+  /* margin-bottom:-60px;  */
+ font-size:inherit;
+ background-color:hotpink; 
 
-
- /* font-size: 20px;       */
+ border:2px solid black;    
 }
-input {
-    position:relative;
+
+
+.button,.reg{
+    position:absolute;
+    top:34vh;
+    left:29vw;
+    border-radius:12px;
+    background-color: gold;
+    width:25vw;
+    height:8vh;
    
-    left:80px;
-    bottom:-10px;
 
-    
-     
-    
 }
+
+
 input[type=text] {
-    background-color:lawngreen;
-    color: white;  
-}
+     z-index: 3;
+    /* top:3.8vh;  
+    left:70vw; 
+    margin-top:-60px;  */
+    background-color:purple; 
+    color:white;
+    /* flex-wrap: wrap;
+    height:10vh;
+    width: 14vw;
+    display: inline-flex;
+    position:relative;
+    font-size:inherit;
+    text-align: center;
+    justify-content: center; */
+    }
 
 
 
 .hoursOverviewClass {
     float: left;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    color: #99AAB5;
+    padding: 3px;
+    font-size: 1vw;
+}
+.style1{
+    width: 15vw;
+    float: left;
+    clear: left;
+    
+    }
+    .style2{
+        min-width: 9vw;
+        text-align: center;
+        float: left;
+    }
+    .style3{
+        width: 15vw;
+        /* float: left; */
+        clear: left;
+        
+        }
+
+.todaysHoursClass {
+     position: fixed; 
+    width: auto;
+    height: 32vh;
+    top: 10vh;
+    right: 1vw;
+    background-color: rgb(61, 66, 71);
+    color: #99AAB5;
+    padding-bottom: 2vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 1vw;    
+}
+
+.infoFieldClass {
+    position: fixed; 
+    width: 40vw;
+    height: 32vh;
+    top: 10vh;
+    left: 20vw;
+    background-color: rgb(61, 66, 71);
+    color: #99AAB5;
+    padding-bottom: 2vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 1vw;
 }
