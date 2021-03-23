@@ -3,9 +3,9 @@
 //husk a "wrappe" alt i ett object som heter model
 const model = {
 
-// navButtonObject = {
-// navButtons: ['Time Registrering', 'Prosjekt Registrering', 'Oversikt Timer', 'Oversikt Prosjekter']
-// },
+letnavButtonObject = {
+ navButtons: ['Time Registrering', 'Prosjekt Registrering', 'Oversikt Timer', 'Oversikt Prosjekter']
+ },
 
 // navViewObject = {
 // navView: ['hoursRegister', 'projectRegister', 'hoursOverview', 'projectOverview']
