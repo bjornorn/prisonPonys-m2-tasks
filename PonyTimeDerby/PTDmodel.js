@@ -7,6 +7,7 @@ const navButtons = [
     "Prosjekt Registrering",
     "Oversikt Timer",
     "Oversikt Prosjekter", 
+    
 ]
 
 const navView = ['hoursRegister', 'projectRegister', 'hoursOverview', 'projectOverview'];
