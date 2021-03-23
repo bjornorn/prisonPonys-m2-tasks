@@ -5,7 +5,7 @@ let html = '';
         html = '';
         // html += `<div class='header'>${navButtons[0]}</div>`;
         html += `<div class='sidebar'>`;
-        for (let i = 0; i < navButtons.length; i++) {
+        for (let i = 0; i < Object.keys(model.navButtonObject).length; i++) {
             // html += `<div class='navButtons'>${i}</div>`;
             html += `<button class='navButtons' type="button" onclick="${navView[i]}()">${navButtons[i]}</button>`;
         }
@@ -53,7 +53,9 @@ let html = '';
 function hoursOverviewPage() {
     html += `<div class="hoursOverviewClass"><h2>Registrerte timer</h2></div>`;
     html += `<div>${registerListMarch}</div>`;
-    document.getElementById("app").innerHTML = html;    
+    html +=`div class="TimeRegister">sortert på dag, uke, måned eller prosjekter.</div>B;
+html += `<div id="timeHistorik">aktive og ferdig projekt , register timer brukt it tid .eks foig mnd</div>`;
+document.getElementbyId("app").innerHTML = html`;    
 }
 
 // ***PROSJEKT OVERSIKT VIEW***
