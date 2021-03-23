@@ -10,8 +10,8 @@ FERDIG: Lage timeregistrering side som ser akseptabel ut
 AKTIVE OPPGAVER:
 * Lage "OVERSIKT TIMER" view
 * Lage funksjon for "registrer timer"
+* Lage funksjon for å registrere prosjekt
 
 FREMTIDIGE OPPGAVER
 * Lage "PROSJEKT REGISTERING" view
 * Lage "OVERIKT PROSJEKTER" view
-* Lage funksjon for å registrere prosjekt
