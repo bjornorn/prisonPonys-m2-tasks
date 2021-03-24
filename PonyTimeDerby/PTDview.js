@@ -38,14 +38,14 @@ function hoursRegisterSheetView() {
 
   // TEGNE OPP "TIMER I DAG FELT"
   html += `<div class="todaysHoursClass"><h3>Registrerte timer i dag:</h3>`;
-  html += `<table><tr>`;
+  html += `<table><tr><td>Prosjekt Navn:</td><td>Antall timer</td></tr>
+  `;
   for (let i = 0; i < Object.keys(theProjects).length; i++) {
     html += `<td class="style1">${Object.values(theProjects)[i].projectName
     }</td> 
-                <td class="style2">${
-                  Object.values(registeredToday)[i][0]
-                }</td>`;
+                <td class="style2">${Object.values(registeredToday)[i][0]}</td>`;
   }
+  
   html += `<td class="style1">&nbsp</td><td class="style2">&nbsp</td>`;
   html += `<td class="style1">Sum Timer</td><td class="style2">4,5</td>`;
   html += `</tr></table></div>`;
