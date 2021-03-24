@@ -25,7 +25,7 @@ dayTimeRegister: {
  },
 
 hoursSheetForm: {
-     description: ['Dato', 'Dagen Startet', 'Pausen Startet', 'Pausen Stoppet', 'Dagen ferdig', 'Navn på prosjekt'],
+     description: ['Dato', 'Tid Startet', 'Pausen Startet', 'Pausen Stoppet', 'Tid Stoppet', 'Navn på prosjekt'],
      hourRecord1: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Pony Time Derby'],
      hourRecord2: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Get Academy - declaration of freedom'],
      hourRecord3: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Dinas nabos borretips - webside'],
@@ -36,19 +36,27 @@ hoursSheetForm: {
  },
 // PROSJEKT OBJEKTER
 
-projectNewRegister: {
-    description: ['Dato:', 'Navn på prosjekt:', 'Budsjettert timer:', 'Timer brukt:', 'Tidsfrist:'],
-    projectRecord1: ['2021-03-23', 'Pony Time Derby', '50', '22', '2021-03-27'],
-    projectRecord2: ['2021-03-25', 'Linn sin kahoot database', '25', '6', '2021-03-28'],
-    projectRecord3: ['2021-03-29', 'Andreas Ninja Webshop', '45', '2', '2021-04-05'],
+projectActiveRegister: {
+    description: ['Dato:', 'Navn på prosjekt:', 'Budsjettert timer:', 'Timer brukt:', 'Tidsfrist:', 'DateFinished', 'isFinished'],
+    projectRecord1: ['2021-03-23', 'Pony Time Derby', '50', '22', '2021-03-27', '', false],
+    projectRecord2: ['2021-03-25', 'Linn sin kahoot database', '25', '6', '2021-03-28', '', false],
+    projectRecord3: ['2021-03-29', 'Andreas Ninja Webshop', '45', '2', '2021-04-05', '', false],
+},
+
+projectFinishedRegister: {
+    description: ['Dato:', 'Navn på prosjekt:', 'Budsjettert timer:', 'Timer brukt:', 'Tidsfrist:', 'DateFinished', 'isFinished'],
+    projectRecord1: ['2021-03-23', 'Pony Time Derby', '50', '22', '2021-03-27', '', true],
+    projectRecord2: ['2021-03-25', 'Linn sin kahoot database', '25', '6', '2021-03-28', '', true],
+    projectRecord3: ['2021-03-29', 'Andreas Ninja Webshop', '45', '2', '2021-04-05', '', true],
 },
 
 
 
 registerData: {
     dataType: ['Date', 'Text', 'Number', 'Number', 'Date'],
-    actualValue: ['', '', '', '', ''],
+    dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
+    actualValue: ['', '', '', '', '', '', false],
 },
 };
-
-let recordCount = Object.keys(model.projectNewRegister).length;
+let activeProjectsList = '';
+let recordCount = Object.keys(model.projectActiveRegister).length;

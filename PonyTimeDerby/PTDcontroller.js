@@ -27,11 +27,19 @@ function projectOverviewView() {
     projectOverviewPageView();
 }
 
-// REGISTER DATA FUNCTIONS
+// REGISTER TIME FUNCTIONS
+function makeProjectDropdown() {
+    for (let i = 1; i < Object.keys(model.projectActiveRegister).length; i++) {     
+      html += `<option ${i} value="${Object.values(model.projectActiveRegister)[i][1]}"</option>`;
+    }
 
-function registerNewProject() {
+}
+
+// REGISTER PROJECT FUNCTIONS
+
+function registerActiveProject() {
     navn = 'projectRecord' + recordCount.toString();
-    model.projectNewRegister[navn] = [
+    model.projectActiveRegister[navn] = [
       model.registerData.actualValue[0],
       model.registerData.actualValue[1],
       model.registerData.actualValue[2],
@@ -40,3 +48,4 @@ function registerNewProject() {
     ];
     recordCount++;
 }
+

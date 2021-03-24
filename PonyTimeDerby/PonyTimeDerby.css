@@ -16,18 +16,76 @@ margin: 0px;
 }
 #timeRegister{
 
-}
-#timeHistorik{
-  
-} */
+}*/
 
-.TimeRegister {
-  border:2px solid red;
+.datDate {                        /* oversikt timer */
   display: flex;
   flex-wrap: wrap;
+  position:relative;
+  border:2px solid #FB48C4;
+  border-radius: 12px;
+  color:aqua;
+  top:27vh; 
+  left:-3vw;
+  width:10vw;
+}
+a {                         /*a href styling vi kommer på hva vi skal gjøre viss vi får flere */
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {                             /*a href styling vi kommer på hva vi skal gjøre viss vi får flere */
+  
+  color: white;
+}
+.NM {display: flex;       /* Next month button */
+  flex-wrap: wrap;
+  position:relative;
+top:24vh;
+left:20vw;
+color:#FB48C4;
+}
+
+.LM{display: flex;        /* last month button */
+  flex-wrap: wrap;
+  position:relative;
+top:32vh;
+  right:12vw;
+  color:#FB48C4;
+ }
+#timeHistorik{                    /* oversikt timer */
+  
+  color:whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  position:relative;
+  border:2px solid #39FF14;
+  border-radius: 12px;
+  color:aqua;
+  bottom:42vh;
+  left:32vw; 
+  width:5vw;
+  height:4vh;
+  font-size: auto;
+}
+
+
+
+
+.TimeRegister {                 /* oversikt timer */
+  display: flex;
+  flex-wrap: wrap;
+  position:relative;
+  border:2px solid red;
   color: aqua;
   border-radius: 24px ;
+  top:25vh;
+  right:-1vw;
+  width:60vw;
+  height:60vh;
 }
+
 .sidebar {
   display: flex;
   flex-wrap: wrap;
@@ -84,7 +142,16 @@ margin: 0px;
   top: 60vh;
   left: 18vw;
   width: 40vw;
-  height: 7vh;
+  height: 30vh;
+    
+}
+
+.hoursRegisterSheetContent2 {
+  position: fixed;
+  top: 60vh;
+  left: 28vw;
+  width: 40vw;
+  height: 30vh;  
 }
 
 .button {
@@ -107,12 +174,12 @@ input[type='text'] {
   float: left;
 }
 
-table,
+/* table, */
 th,
 td {
   border-collapse: collapse;
   color: #99aab5;
-  padding: 3px;
+  padding: 1px;
   font-size: 1vw;
 }
 .style1 {
