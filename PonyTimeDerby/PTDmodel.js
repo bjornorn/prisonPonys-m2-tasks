@@ -38,9 +38,9 @@ hoursSheetForm: {
 
 projectNewRegister: {
     description: ['Dato:', 'Navn på prosjekt:', 'Budsjettert timer:', 'Timer brukt:', 'Tidsfrist:'],
-    projectRecord1: ['23.03.2021', 'Pony Time Derby', '50', '22', '27.03.2021'],
-    projectRecord2: ['25.03.2021', 'Linn sin kahoot database', '25', '6', '28.03.2021'],
-    projectRecord3: ['29.03.2021', 'Andreas Ninja Webshop', '45', '2', '05.04.2021'],
+    projectRecord1: ['2021-03-23', 'Pony Time Derby', '50', '22', '2021-03-27'],
+    projectRecord2: ['2021-03-25', 'Linn sin kahoot database', '25', '6', '2021-03-28'],
+    projectRecord3: ['2021-03-29', 'Andreas Ninja Webshop', '45', '2', '2021-04-05'],
 },
 
 

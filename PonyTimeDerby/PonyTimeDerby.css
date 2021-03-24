@@ -21,7 +21,13 @@ margin: 0px;
   
 } */
 
-
+.TimeRegister {
+  border:2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  color: aqua;
+  border-radius: 24px ;
+}
 .sidebar {
   display: flex;
   flex-wrap: wrap;

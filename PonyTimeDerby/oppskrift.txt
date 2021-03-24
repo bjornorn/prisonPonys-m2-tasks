@@ -6,12 +6,15 @@ FERDIG: Lage timeregistrering side som ser akseptabel ut
 # Lage SIDEBAR med dummy linker - til bruk på alle sider <h1> </h1>
 # Timeregistering: Lage en form for kalenderfelt
 # Timeregistering: lage felt for hva som er registrert i dag
+* Lage funksjon for å registrere prosjekt
 
 AKTIVE OPPGAVER:
 * Lage "OVERSIKT TIMER" view
+* Få fram skjema "registrer timer"
 * Lage funksjon for "registrer timer"
-* Lage funksjon for å registrere prosjekt
 
 FREMTIDIGE OPPGAVER
 * Lage "PROSJEKT REGISTERING" view
-* Lage "OVERIKT PROSJEKTER" view
+* Lage "OVERSIKT PROSJEKTER" view
+* Forbedre funksjon for "registrer timer"
+* Forbedre funksjon for å registrere prosjekt
