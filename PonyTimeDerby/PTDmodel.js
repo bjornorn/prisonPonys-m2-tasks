@@ -64,19 +64,22 @@ projectFinishedRegister: {
 
 registerData: {
 
-    projectId: 'Lag en Prosjekt ID',
-    projectName: 'Gi Prosjektet et navn',
-    budgetHours: 'Hvor mange timer er budsjetert',
-    setDeadline: 'Når skal prosjektet være ferdig',
-    dateCreated: '',
-    dateFinished: '',
-    sumTimeSpent: '',
-    sumTimeSpentToday: '',
+    // projectId: 'Lag en Prosjekt ID',
+    // projectName: 'Gi Prosjektet et navn',
+    // budgetHours: 'Hvor mange timer er budsjetert',
+    // setDeadline: 'Når skal prosjektet være ferdig',
+    // dateCreated: '',
+    // dateFinished: '',
+    // sumTimeSpent: '',
+    // sumTimeSpentToday: '',
     
+    // Til PROSJEKT REGISTRERING
     dataType: ['text', 'text', 'number', 'date', 'date', 'number', 'number', 'number'],
-    BAKCUPdataType: ['Date', 'Text', 'Number', 'Number', 'Date'],
-    dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
     actualValue: ['', '', '', '', '', '', '', ''],
+    // Til TIME REGISTERING
+    dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
+    hourActualValue: ['', '', '', '', '', '', '', ''],
+
 },
 };
 let activeProjectsList = '';

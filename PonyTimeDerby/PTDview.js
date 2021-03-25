@@ -24,10 +24,11 @@ function hoursRegisterSheetView() {
     }
     html += `</table><table class="hoursRegisterSheetContent2">`;
     for (let i = 0; i < (model.hoursSheetForm.description.length -1) ; i++) {
-     html += `<tr><td><input type="${model.registerData.dtProjectActiveRegister[i]}"></td></tr>`;
-    }  
-
-  html += `<tr><td><select style="width: 200px">`;
+     html += `<tr><td><input type="${model.registerData.dtProjectActiveRegister[i]}" 
+              oninput="model.registerData.hourActualValue[${i}] = this.value"/></td></tr>`;
+        }  
+    //Dropdown meny
+  html += `<tr><td><select style="width: 200px" oninput="model.registerData.hourActualValue[${5}] = this.value">`;
           for (let i = 0; i < Object.keys(theAProjects).length; i++) {     
           html += `<option ${i} value="${Object.values(theAProjects)[i].projectName}">${Object.values(theAProjects)[i].projectName}</option>`;
     }
@@ -73,7 +74,7 @@ function projectRegisterPageView() {
         </td></tr>`;
   }
   html += `</table>`;
-  html += `<button class="clickButton" onclick="registerActiveProject2()">Registrer nytt prosjekt</button>`;
+  html += `<button class="clickButton" onclick="registerActiveProject()">Registrer nytt prosjekt</button>`;
   html += `</div>`;
   document.getElementById('app').innerHTML = html;
 }

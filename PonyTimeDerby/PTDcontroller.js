@@ -28,13 +28,22 @@ function projectOverviewView() {
 }
 
 // REGISTER TIME FUNCTIONS
+function registerCurrentHours() {
 
+    rightfulObj = model.registerData.hourActualValue[5];
+console.log(rightfulObj);
+for (let i = 0; i < Object.keys(theAProjects).length; i++)
+
+if (rightfulObj == Object.values(theAProjects)[i].projectName) {
+    theAProjects[Object.values(theAProjects)[i]].dateCreated = 'yes!';
+}
+
+}
 
 // REGISTER PROJECT FUNCTIONS
 
 
-
-function registerActiveProject2() {
+function registerActiveProject() {
     recordCount++;
     navn = 'projectNo' + recordCount.toString();
 
@@ -45,8 +54,8 @@ function registerActiveProject2() {
     theAProjects[navn].setDeadline = model.registerData.actualValue[3];
     theAProjects[navn].dateCreated = '';
     theAProjects[navn].dateFinished = '';
-    theAProjects[navn].sumTimeSpent = '';
-    theAProjects[navn].sumTimeSpentToday = '';
+    theAProjects[navn].sumTimeSpent = 0;
+    theAProjects[navn].sumTimeSpentToday = 0;
     theAProjects[navn].datestampInfo = ['dateStamp', 'startTime', 'stoptime', 'pauseTrueFalse', 'pauseStart', 'pauseStop', 'sumHours', 'sumMinutes', 'totalTime'];
   
 }
