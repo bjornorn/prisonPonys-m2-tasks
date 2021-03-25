@@ -1,6 +1,12 @@
 //SIDENAVIGERING
 
 //husk a "wrappe" alt i ett object som heter model
+currentDate = new Date;
+dateIsNow = currentDate.toLocaleDateString();
+currentHour = currentDate.getHours();
+currentMinute = currentDate.getMinutes();
+timeIsNow = currentHour + ':' + currentMinute;
+
 const model = {
 
  
@@ -14,14 +20,18 @@ navView: ['hoursRegisterView', 'projectRegisterView', 'hoursOverviewView', 'proj
 
 // TIME OBJEKTER
 
-dayTimeRegister: {
-    id: 123,
-    date: '17.03.2021',
-    startDay: '08:00',
-    pauseStart: '11:30',
-    pauseStop: '12:00',
-    stopDay: '16:00',
-   projectName: 'Pony Derby Time',
+
+
+
+projectInfoRegister: {
+    projectId: 'Lag en Prosjekt ID',
+    projectName: 'Gi Prosjektet et navn',
+    budgetHours: 'Hvor mange timer er budsjetert',
+    setDeadline: 'Når skal prosjektet være ferdig',
+    dateCreated: '',
+    dateFinished: '',
+    sumTimeSpent: '',
+    sumTimeSpentToday: '',
  },
 
 hoursSheetForm: {
@@ -53,10 +63,22 @@ projectFinishedRegister: {
 
 
 registerData: {
-    dataType: ['Date', 'Text', 'Number', 'Number', 'Date'],
+
+    projectId: 'Lag en Prosjekt ID',
+    projectName: 'Gi Prosjektet et navn',
+    budgetHours: 'Hvor mange timer er budsjetert',
+    setDeadline: 'Når skal prosjektet være ferdig',
+    dateCreated: '',
+    dateFinished: '',
+    sumTimeSpent: '',
+    sumTimeSpentToday: '',
+    
+    dataType: ['text', 'text', 'number', 'date', 'date', 'number', 'number', 'number'],
+    BAKCUPdataType: ['Date', 'Text', 'Number', 'Number', 'Date'],
     dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
-    actualValue: ['', '', '', '', '', '', false],
+    actualValue: ['', '', '', '', '', '', '', ''],
 },
 };
 let activeProjectsList = '';
-let recordCount = Object.keys(model.projectActiveRegister).length;
+// let recordCount = Object.keys(theAProjects).length;
+

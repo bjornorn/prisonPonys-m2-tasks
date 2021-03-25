@@ -28,24 +28,31 @@ function projectOverviewView() {
 }
 
 // REGISTER TIME FUNCTIONS
-function makeProjectDropdown() {
-    for (let i = 1; i < Object.keys(model.projectActiveRegister).length; i++) {     
-      html += `<option ${i} value="${Object.values(model.projectActiveRegister)[i][1]}"</option>`;
-    }
 
-}
 
 // REGISTER PROJECT FUNCTIONS
 
-function registerActiveProject() {
-    navn = 'projectRecord' + recordCount.toString();
-    model.projectActiveRegister[navn] = [
-      model.registerData.actualValue[0],
-      model.registerData.actualValue[1],
-      model.registerData.actualValue[2],
-      model.registerData.actualValue[3],
-      model.registerData.actualValue[4],      
-    ];
+
+
+function registerActiveProject2() {
     recordCount++;
+    navn = 'projectNo' + recordCount.toString();
+
+    theAProjects[navn] = new Object();
+    theAProjects[navn].projectId = model.registerData.actualValue[0];
+    theAProjects[navn].projectName = model.registerData.actualValue[1];
+    theAProjects[navn].budgetHours = model.registerData.actualValue[2];
+    theAProjects[navn].setDeadline = model.registerData.actualValue[3];
+    theAProjects[navn].dateCreated = '';
+    theAProjects[navn].dateFinished = '';
+    theAProjects[navn].sumTimeSpent = '';
+    theAProjects[navn].sumTimeSpentToday = '';
+    theAProjects[navn].datestampInfo = ['dateStamp', 'startTime', 'stoptime', 'pauseTrueFalse', 'pauseStart', 'pauseStop', 'sumHours', 'sumMinutes', 'totalTime'];
+  
 }
 
+
+
+ 
+
+  

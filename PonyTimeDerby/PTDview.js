@@ -28,8 +28,8 @@ function hoursRegisterSheetView() {
     }  
 
   html += `<tr><td><select style="width: 200px">`;
-          for (let i = 1; i < Object.keys(model.projectActiveRegister).length; i++) {     
-          html += `<option ${i} value="${Object.values(model.projectActiveRegister)[i][1]}">${Object.values(model.projectActiveRegister)[i][1]}</option>`;
+          for (let i = 0; i < Object.keys(theAProjects).length; i++) {     
+          html += `<option ${i} value="${Object.values(theAProjects)[i].projectName}">${Object.values(theAProjects)[i].projectName}</option>`;
     }
           `</select></tr></td>`;
   html += `</table>`;
@@ -38,16 +38,18 @@ function hoursRegisterSheetView() {
 
   // TEGNE OPP "TIMER I DAG FELT"
   html += `<div class="todaysHoursClass"><h3>Registrerte timer i dag:</h3>`;
-  html += `<table><tr><td>Prosjekt Navn:</td><td>Antall timer</td></tr>
+  html += `<table><tr><td class="style1">Prosjekt Navn:</td><td class="style2">Antall timer</td></tr>
   `;
-  for (let i = 0; i < Object.keys(theProjects).length; i++) {
-    html += `<td class="style1">${Object.values(theProjects)[i].projectName
-    }</td> 
-                <td class="style2">${Object.values(registeredToday)[i][0]}</td>`;
-  }
+  let todaysHours = 0;
+  for (let i = 0; i < Object.keys(theAProjects).length; i++) {
+    html += `<tr><td class="style1">${Object.values(theAProjects)[i].projectName}</td> 
+             <td class="style2">${Object.values(theAProjects)[i].sumTimeSpentToday}</td></tr>`;
+             todaysHours += parseFloat(Object.values(theAProjects)[i].sumTimeSpentToday);
+           
+            }
   
-  html += `<td class="style1">&nbsp</td><td class="style2">&nbsp</td>`;
-  html += `<td class="style1">Sum Timer</td><td class="style2">4,5</td>`;
+  html += `<tr><td class="style1">&nbsp</td><td class="style2">&nbsp</td></tr>`;
+  html += `<tr><td class="style1">Sum Timer</td><td class="style2">${todaysHours}</td>`;
   html += `</tr></table></div>`;
 
   // TEGNE OPP "KALENDER FELT"
@@ -61,42 +63,63 @@ function hoursRegisterSheetView() {
 // ***PROSJEKT REGISTERING VIEW***
 function projectRegisterPageView() {
   html += `<div class="projectRegisterSheet"><table class="projectRegisterSheetContent">`;
-  for (let i = 0; i < (Object.values(model.projectActiveRegister)[0].length - 2); i++) {
+  for (let i = 0; i < (Object.keys(model.projectInfoRegister).length - 4); i++) {
     html += `<tr class="projectRegisterSheetContent"><td>${
-      Object.values(model.projectActiveRegister)[0][i]
+      Object.values(model.projectInfoRegister)[i]
     }</td>
         <td><input type="${model.registerData.dataType[i]}"
         
-        oninput="model.registerData.actualValue[${i}] = this.value" 
-        />
+        oninput="model.registerData.actualValue[${i}] = this.value"/>
         </td></tr>`;
   }
   html += `</table>`;
-  html += `<button class="clickButton" onclick="registerActiveProject()">Registrer nytt prosjekt</button>`;
+  html += `<button class="clickButton" onclick="registerActiveProject2()">Registrer nytt prosjekt</button>`;
   html += `</div>`;
   document.getElementById('app').innerHTML = html;
 }
 
+
+
 // ***TIME OVERSIKT VIEW***
 function hoursOverviewPageView() {
-  html += `<div class="hoursOverviewClass"><h2>Registrerte timer</h2></div>`;
-  html +=`<a href="#" class="LM">&laquo; forige måned</a> >`
-  html += `<div class="datDate"><b>Dat time of the Year</b></div>`
-  html +=`<a href="#" class="NM">Neste måned &raquo;</a>`
-  html += `<div>${registerListMarch}</div>`;
 
-  html += `<div class="TimeRegister">${hoursJanuary.Object}</div>`;
+  html += `<table class="styleMonth"><tr>`;
+html +=`<td><a href="#"> Forrige måned</a></td> `
+html += `<td><div><b>Janumary</b></div></td>`; /* input month for change */
+html +=`<td><a href="#">Neste måned</a></td>`
+html += `</tr></table>`;
+
+ 
+
+  html+= `<div class="TimeRegister">`;
+  html += `<table><tr>`;
   
-  html += `<div id="timeHistorik" 
-  <input type="button" value="" onclick="msg()"> time historikk
-</div>`;
+  for (let i = 0; i < Object.values(hoursJanuary.dInfo).length; i++) {
+    html += `<td class="styleTimereg">${Object.values(hoursJanuary.dInfo)[i]}</td>`;    
+  }
+  html += `</tr></table>`;
+  html+= `<div class="TimeRegister2">`;
+  html += `<table>`;
+  
+  for (let i = 1; i < Object.keys(hoursJanuary).length; i++) {
+    html += `<tr>
+       <td class="styleTimereg">${Object.values(hoursJanuary)[i][0]}</td>
+       <td class="styleTimereg">${Object.values(hoursJanuary)[i][1]}</td>
+       <td class="styleTimereg">${Object.values(hoursJanuary)[i][2]}</td>
+       <td class="styleTimereg">${Object.values(hoursJanuary)[i][3]}</td>
+       <td class="styleTimereg">${Object.values(hoursJanuary)[i][4]}</td>
+       <td class="styleTimereg">${Object.values(hoursJanuary)[i][5]}</td>       
+            </tr>`;
+  }
+  
+  html += `</table> </div></div>`;
+  
+  
 
   document.getElementById('app').innerHTML = html;
-}
-function msg() {
-  alert("change me and i will put in info");
-}
-function projectTimeUse (){}
+} 
+
+
 
 
 

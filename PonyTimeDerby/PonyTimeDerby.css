@@ -11,49 +11,63 @@ margin: 0px;
   font-family: verdana;
   display: inline-block;
 }
-/* .timeBank{
 
-}
-#timeRegister{
 
-}*/
 
-.datDate {                        /* oversikt timer */
+.TimeRegister {                 /* oversikt timer */
+  
   display: flex;
   flex-wrap: wrap;
   position:relative;
-  border:2px solid #FB48C4;
-  border-radius: 12px;
-  color:aqua;
-  top:27vh; 
-  left:-3vw;
-  width:10vw;
+  border:2px solid red;
+  color: aqua;
+  border-radius: 24px ;
+  top:25vh;
+  right:-1vw;
+  width:70vw;
+  height:60vh;
+  
+  
+}
+.styleTimereg {
+  border-bottom: ;
+  min-width: 9vw;
+  text-align: center;
+  float: left;
+}
+.TimeRegister2{
+  display: flex;
+  flex-wrap: wrap;
+  position:relative;
+  height:50vh;
+  top:3vh;
+  width:100vw;
+  overflow-y: scroll;
+
+}
+
+.styleMonth{
+  display: flex;
+  flex-wrap: wrap;
+  position:relative;
+  top:24.5vh;
+  left:4vw;
+  border-radius: 50px 20px;
+  border:3px double gold;
+  width:25vw;
 }
 a {                         /*a href styling vi kommer på hva vi skal gjøre viss vi får flere */
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
+  color: #39FF14;
 }
 
 a:hover {                             /*a href styling vi kommer på hva vi skal gjøre viss vi får flere */
   
   color: white;
 }
-.NM {display: flex;       /* Next month button */
-  flex-wrap: wrap;
-  position:relative;
-top:24vh;
-left:20vw;
-color:#FB48C4;
-}
 
-.LM{display: flex;        /* last month button */
-  flex-wrap: wrap;
-  position:relative;
-top:32vh;
-  right:12vw;
-  color:#FB48C4;
- }
 #timeHistorik{                    /* oversikt timer */
   
   color:whitesmoke;
@@ -73,18 +87,6 @@ top:32vh;
 
 
 
-.TimeRegister {                 /* oversikt timer */
-  display: flex;
-  flex-wrap: wrap;
-  position:relative;
-  border:2px solid red;
-  color: aqua;
-  border-radius: 24px ;
-  top:25vh;
-  right:-1vw;
-  width:60vw;
-  height:60vh;
-}
 
 .sidebar {
   display: flex;
@@ -262,3 +264,7 @@ height: 7vh;
 width: 20vw;
 font-size: 2.5vh;
 }
+
+
+
+
