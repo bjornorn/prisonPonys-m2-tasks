@@ -23,6 +23,8 @@ KANSKJE EN DAG I FRAMTIDA:
 * vurdere om pause skal defineres hver gang
 
 
-Bjørn HEI
-Hei
-helu
+    <td>${Object.values(model.projectActiveRegister)[i][0]}</td>
+                 <td>${Object.values(model.projectActiveRegister)[i][1]}</td>
+                 <td>${Object.values(model.projectActiveRegister)[i][2]}</td>
+                 <td>${Object.values(model.projectActiveRegister)[i][3]}</td>
+                 <td>${Object.values(model.projectActiveRegister)[i][4]}</td>

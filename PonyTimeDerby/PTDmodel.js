@@ -1,11 +1,21 @@
 //SIDENAVIGERING
 
 //husk a "wrappe" alt i ett object som heter model
-currentDate = new Date;
+
+//dato og tid del 1
+currentDate = new Date();
 dateIsNow = currentDate.toLocaleDateString();
 currentHour = currentDate.getHours();
 currentMinute = currentDate.getMinutes();
 timeIsNow = currentHour + ':' + currentMinute;
+
+
+
+// dato og tid del 2
+let d = ('0' + currentDate.getDate()).slice(-2);
+let m = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+let y = currentDate.getFullYear();
+let iDag = y + '-' + m + '-' + d;
 
 const model = {
 
@@ -77,8 +87,11 @@ registerData: {
     dataType: ['text', 'text', 'number', 'date', 'date', 'number', 'number', 'number'],
     actualValue: ['', '', '', '', '', '', '', ''],
     // Til TIME REGISTERING
+    datestampInfo: ['dateStamp', 'startTime', 'stoptime', 'pauseTrueFalse',
+                'pauseStart', 'pauseStop', 'sumHours', 'sumMinutes', 'totalTime'],
     dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
-    hourActualValue: ['', '', '', '', '', '', '', ''],
+    hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', '', '', '', ''],
+    hourActualValue: ['', '', '', '', '', '', '', '', '', ''],
 
 },
 };
