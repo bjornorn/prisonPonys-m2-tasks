@@ -58,7 +58,7 @@ function registerActiveProject() {
   theAProjects[navn].dateCreated = '';
   theAProjects[navn].dateFinished = '';
   theAProjects[navn].sumTimeSpent = 0;
-  theAProjects[navn].sumTimeSpentToday = 0;
+  theAProjects[navn].sumTimeSpentToday = [0, 0];
   theAProjects[navn].datestampInfo = [
     'dateStamp',
     'startTime',
@@ -74,16 +74,18 @@ function registerActiveProject() {
 
 function calculateWorkTime() {
   let startTime = parseInt(model.registerData.hourActualValue[1].substr(0, 2));
-  let startMinutt = parseInt(model.registerData.hourActualValue[1].substr(3, 5));
+  let startMinutt = parseInt(
+    model.registerData.hourActualValue[1].substr(3, 2)
+  );
   let stopTime = parseInt(model.registerData.hourActualValue[4].substr(0, 2));
-  let stopMinutt = parseInt(model.registerData.hourActualValue[4].substr(3, 5));
-  
+  let stopMinutt = parseInt(model.registerData.hourActualValue[4].substr(3, 2));
+
   startSum = startTime * 60 + startMinutt;
   stopSum = stopTime * 60 + stopMinutt;
-  
+
   // if (stopSum < startSum) {
   //   stopSum += 1440; // et døgn er 1440 minutter  // }
-  
+
   sumMin = stopSum - startSum;
   totalHour = Math.floor(sumMin / 60);
   totalMin = sumMin - totalHour * 60;
@@ -95,53 +97,62 @@ function calculateWorkTime() {
   model.registerData.hourActualValue[7] = totalMin;
   model.registerData.hourActualValue[8] = totalHour + ':' + totalMin;
 
-  
-  // console.log(totalHour);
-  // console.log(totalMin);
+  // console.log('timer tot ' + totalHour);
+  // console.log('min tot' + totalMin);
 }
 
 function calcSpentHrsToday(i) {
-  
   let sumHoursSpentToday = 0;
   let sumMinutesSpentToday = 0;
-// for (let i = 0; i < Object.keys(theAProjects).length; i++) {
+  // for (let i = 0; i < Object.keys(theAProjects).length; i++) {
   // console.log(Object.keys(Object.values(theAProjects)[i]).length - 9);
-  for (let j = 1; j < (Object.keys(Object.values(theAProjects)[i]).length - 8); j++) {
-    
-    // console.log('what ' + Object.values(theAProjects.projectNo3)[j + 8]);    
-      
-    if (Object.values(theAProjects)[i]['datestamp' + j][0] == iDag){
-      sumHoursSpentToday = sumHoursSpentToday + (Object.values(theAProjects)[i]['datestamp' + j][6]);
-      sumMinutesSpentToday = sumMinutesSpentToday + (Object.values(theAProjects)[i]['datestamp' + j][7]);
+  for (
+    let j = 1;
+    j < Object.keys(Object.values(theAProjects)[i]).length - 8;
+    j++
+  ) {
+    // console.log('what ' + Object.values(theAProjects.projectNo3)[j + 8]);
+
+    if (Object.values(theAProjects)[i]['datestamp' + j][0] == iDag) {
+      sumHoursSpentToday =
+        sumHoursSpentToday + Object.values(theAProjects)[i]['datestamp' + j][6];
+      sumMinutesSpentToday =
+        sumMinutesSpentToday +
+        Object.values(theAProjects)[i]['datestamp' + j][7];
       // alert ('jippu');
-    } 
+    }
     // console.log('min før' + sumMinutesSpentToday)
     // console.log('timer før' + sumHoursSpentToday)
     if (sumMinutesSpentToday > 59) {
       sumHoursSpentToday++;
       sumMinutesSpentToday = sumMinutesSpentToday - 60;
-    } 
+    }
     // console.log('min etter' + sumMinutesSpentToday)
     // console.log('timer etter' + sumHoursSpentToday)
     //den hellige setning:
-    // console.log(Object.values(theAProjects)[i]['datestamp' + j][0])    
+    // console.log(Object.values(theAProjects)[i]['datestamp' + j][0])
   }
   Object.values(theAProjects)[i].sumTimeSpentToday[0] = sumHoursSpentToday;
   Object.values(theAProjects)[i].sumTimeSpentToday[1] = sumMinutesSpentToday;
 
- 
   // console.log('denne ' + Object.values(theAProjects)[i].sumTimeSpentToday)
 
   return sumHoursSpentToday;
-  
 }
 
 function todayTotalHours() {
-let hourMinute = [0,0];
-  
+  let hourMinute = [0, 0];
+
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-    hourminute += Object.values(theAProjects)[i].sumTimeSpentToday[0]    
+    hourMinute[0] += Object.values(theAProjects)[i].sumTimeSpentToday[0];
+    hourMinute[1] += Object.values(theAProjects)[i].sumTimeSpentToday[1];
+
+    if (hourMinute[1] > 59) {
+      hourMinute[0]++;
+      hourMinute[1] = hourMinute[1] - 60;
+    }
   }
-  console.log(hourMinute);
-  
+  // console.log(hourMinute);
+  tracking.todayHoursMinutes = hourMinute;
+  // console.log(tracking.todayHoursMinutes);
 }

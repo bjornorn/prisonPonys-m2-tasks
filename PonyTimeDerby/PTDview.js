@@ -2,6 +2,7 @@ let html = '';
 
 //***MAIN VIEW***
 function updateView() {
+  todayTotalHours(); //tell opp dagen registrerte timer
   html = '';
   // html += `<div class='header'>${navButtons[0]}</div>`;
   html += `<div class='sidebar'>`;
@@ -47,7 +48,7 @@ function hoursRegisterSheetView() {
   html += `<div class="todaysHoursClass"><h3>Registrerte timer i dag:</h3>`;
   html += `<table><tr><td class="style1">Prosjekt Navn:</td><td class="style2">Timer, Minutter</td></tr>
   `;
-  let todaysHours = 0;
+  // let todaysHours = 0;
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
     html += `<tr><td class="style1">${
       Object.values(theAProjects)[i].projectName
@@ -55,11 +56,11 @@ function hoursRegisterSheetView() {
              <td class="style2">${
                Object.values(theAProjects)[i].sumTimeSpentToday
              }</td></tr>`;
-    todaysHours += parseFloat(Object.values(theAProjects)[i].sumTimeSpentToday);
+    // todaysHours += parseFloat(Object.values(theAProjects)[i].sumTimeSpentToday);
   }
 
   html += `<tr><td class="style1">&nbsp</td><td class="style2">&nbsp</td></tr>`;
-  html += `<tr><td class="style1">Sum Timer</td><td class="style2">${todaysHours}</td>`;
+  html += `<tr><td class="style1">Sum Timer</td><td class="style2">${tracking.todayHoursMinutes}</td>`;
   html += `</tr></table></div>`;
 
   // TEGNE OPP "KALENDER FELT"
