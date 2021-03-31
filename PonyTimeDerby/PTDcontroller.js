@@ -74,19 +74,29 @@ function registerActiveProject() {
 
 function calculateWorkTime() {
   let startTime = parseInt(model.registerData.hourActualValue[1].substr(0, 2));
-  let startMinutt = parseInt(model.registerData.hourActualValue[1].substr(3, 2));
+  let startMinutt = parseInt(
+    model.registerData.hourActualValue[1].substr(3, 2)
+  );
   let stopTime = parseInt(model.registerData.hourActualValue[4].substr(0, 2));
   let stopMinutt = parseInt(model.registerData.hourActualValue[4].substr(3, 2));
-  let startPauseHour = parseInt(model.registerData.hourActualValue[2].substr(0,2));
-  let stopPauseHour = parseInt(model.registerData.hourActualValue[3].substr(0,2));
-  let startPauseMinutt = parseInt(model.registerData.hourActualValue[2].substr(3,2));
-  let stopPauseMinutt = parseInt(model.registerData.hourActualValue[3].substr(3,2));
+  let startPauseHour = parseInt(
+    model.registerData.hourActualValue[2].substr(0, 2)
+  );
+  let stopPauseHour = parseInt(
+    model.registerData.hourActualValue[3].substr(0, 2)
+  );
+  let startPauseMinutt = parseInt(
+    model.registerData.hourActualValue[2].substr(3, 2)
+  );
+  let stopPauseMinutt = parseInt(
+    model.registerData.hourActualValue[3].substr(3, 2)
+  );
 
-  startSum = (startTime * 60) + startMinutt;
-  stopSum = (stopTime * 60) + stopMinutt;
+  startSum = startTime * 60 + startMinutt;
+  stopSum = stopTime * 60 + stopMinutt;
 
-  pauseStartSum = (startPauseHour * 60) + startPauseMinutt;
-  pauseStopSum = (stopPauseHour * 60) + stopPauseMinutt;
+  pauseStartSum = startPauseHour * 60 + startPauseMinutt;
+  pauseStopSum = stopPauseHour * 60 + stopPauseMinutt;
 
   sumPauseMin = pauseStopSum - pauseStartSum;
   totalPauseHour = Math.floor(sumPauseMin / 60);
@@ -95,7 +105,7 @@ function calculateWorkTime() {
   // if (stopSum < startSum) {
   //   stopSum += 1440; // et døgn er 1440 minutter  // }
 
-  sumMin = (stopSum - startSum) - (pauseStopSum - pauseStartSum);
+  sumMin = stopSum - startSum - (pauseStopSum - pauseStartSum);
   totalHour = Math.floor(sumMin / 60);
   totalMin = sumMin - totalHour * 60;
   // sleepTotalMsg =
@@ -106,7 +116,9 @@ function calculateWorkTime() {
   model.registerData.hourActualValue[7] = totalMin;
   model.registerData.hourActualValue[8] = totalHour + ':' + totalMin;
 
-  if (sumPauseMin < 1) {model.registerData.hourActualValue[6] = false};
+  if (sumPauseMin < 1) {
+    model.registerData.hourActualValue[6] = false;
+  }
 
   // console.log('timer tot ' + totalHour);
   // console.log('min tot' + totalMin);
@@ -132,7 +144,7 @@ function calcSpentHrsToday(i) {
         Object.values(theAProjects)[i]['datestamp' + j][7];
       // alert ('jippu');
     }
-    // console.log('min før' + sumMinutesSpentToday)
+    console.log('min før' + sumMinutesSpentToday);
     // console.log('timer før' + sumHoursSpentToday)
     if (sumMinutesSpentToday > 59) {
       sumHoursSpentToday++;
@@ -148,7 +160,7 @@ function calcSpentHrsToday(i) {
 
   // console.log('denne ' + Object.values(theAProjects)[i].sumTimeSpentToday)
 
-  return sumHoursSpentToday;
+  // return sumHoursSpentToday;
 }
 
 function todayTotalHours() {
@@ -166,27 +178,4 @@ function todayTotalHours() {
   // console.log(hourMinute);
   tracking.todayHoursMinutes = hourMinute;
   // console.log(tracking.todayHoursMinutes);
-}
-
-function showProjectStats(n) {
-  seHerJa = '';
-
-  // console.log(Object.keys(Object.values(theAProjects)[n]).length - 9)
-  
-
-  
-  for (let i = 1; i < (Object.keys(Object.values(theAProjects)[n]).length - 8); i++) {
-    seHerJa += `<tr>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][0]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][1]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][4]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][5]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][2]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][8]}</td>
-    
-                 </tr>`
-
-
-  }
-  projectOverviewPageView();
 }

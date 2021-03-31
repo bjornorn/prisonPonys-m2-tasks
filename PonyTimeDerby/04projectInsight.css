@@ -46,8 +46,9 @@
   clear: left;
 }
 .style4-2 {
-  min-width: 10vw;
+  min-width: 6vw;
   text-align: center;
+  border: 1px solid white;
   }
 
 .style4-3 {

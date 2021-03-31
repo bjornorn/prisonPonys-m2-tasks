@@ -17,7 +17,7 @@ let m = ('0' + (currentDate.getMonth() + 1)).slice(-2);
 let y = currentDate.getFullYear();
 let iDag = y + '-' + m + '-' + d;
 
-let seHerJa = '';
+let projectStats = '';
 
 const model = {
 
@@ -76,14 +76,6 @@ projectFinishedRegister: {
 
 registerData: {
 
-    // projectId: 'Lag en Prosjekt ID',
-    // projectName: 'Gi Prosjektet et navn',
-    // budgetHours: 'Hvor mange timer er budsjetert',
-    // setDeadline: 'Når skal prosjektet være ferdig',
-    // dateCreated: '',
-    // dateFinished: '',
-    // sumTimeSpent: '',
-    // sumTimeSpentToday: '',
     
     // Til PROSJEKT REGISTRERING
     dataType: ['text', 'text', 'number', 'date', 'date', 'number', 'number', 'number'],

@@ -3,6 +3,7 @@ let html = '';
 //***MAIN VIEW***00000
 function updateView() {
   todayTotalHours(); //tell opp dagen registrerte timer
+  console.log('timer telt')
   html = '';
   // html += `<div class='header'>${navButtons[0]}</div>`;
   html += `<div class='sidebar'>`;
@@ -22,7 +23,9 @@ function hoursRegisterSheetView() {
   html += `<div><h2>Ny Registrering</h2></div>`;
   html += `<table class="hoursRegisterSheetContent">`;
   for (let i = 0; i < model.hoursSheetForm.description.length; i++) {
-    html += `<tr><td>${Object.values(model.hoursSheetForm.description)[i]}:</td></tr>`;
+    html += `<tr><td>${
+      Object.values(model.hoursSheetForm.description)[i]
+    }:</td></tr>`;
   }
   html += `</table><table class="hoursRegisterSheetContent2">`;
   for (let i = 0; i < model.hoursSheetForm.description.length - 1; i++) {
@@ -125,56 +128,102 @@ function hoursOverviewPageView() {
 }
 
 // ***PROSJEKT OVERSIKT VIEW***44444
+function showStats(n) {
+  projectStats = '';
+
+  for (
+    let i = 1;
+    i < Object.keys(Object.values(theAProjects)[n]).length - 8;
+    i++
+  ) {
+    projectStats += `<tr>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][0]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][1]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][2]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][3]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][4]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][8]
+                }</td>    
+                 </tr>`;
+  }
+
+  updateView();
+  projectOverviewPageView();
+}
+
 function projectOverviewPageView() {
   html += `<div class="projectInsightSheet"><table class="projectInsightSheetContent"><tr>`;
-  
-  for (let i = 0; i < (Object.values(model.projectActiveRegister)[0].length) - 2; i++) {
-      html += `<td class="style4-2">${Object.values(model.projectActiveRegister)[0][i]}</td>`;      
-    }
 
-    html += `</tr>`;
-    n = 0;
-    for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-      html += `<tr>
-                  <td class="style4-2">${Object.values(theAProjects)[i].dateCreated}</td>
-                  <td class="style4-2" onclick="n = ${i}">${Object.values(theAProjects)[i].projectName}</td>
-                  <td class="style4-2" onclick="alert('kake')">${Object.values(theAProjects)[i].budgetHours}</td>
-                  <td class="style4-2">${Object.values(theAProjects)[i].sumTimeSpent}</td>
-                  <td class="style4-2">${Object.values(theAProjects)[i].setDeadline}</td>
-             
-                 </tr>`;
+  for (
+    let i = 0;
+    i < Object.values(model.projectActiveRegister)[0].length - 2;
+    i++
+  ) {
+    html += `<td class="style4-2">${
+      Object.values(model.projectActiveRegister)[0][i]
+    }</td>`;
   }
-  html += `</table></div><div class="projectInsightSheet2"><table class="projectInsightSheetContent"><tr>`;
- 
-  html += `
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[0]}</td>
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[1]}</td>
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[2]}</td>
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[3]}</td>
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[4]}</td>
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[7]}</td>
-  `;
 
-  // html += `<tr>${seHerJa}`;
-  for (let i = 1; i < (Object.keys(Object.values(theAProjects)[n]).length - 8); i++) {
+  html += `</tr>`;
+  // n = 0;
+  for (let i = 0; i < Object.keys(theAProjects).length; i++) {
     html += `<tr>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][0]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][1]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][4]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][5]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][2]}</td>
-                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][8]}</td>
-    
+                  <td class="style4-2">${
+                    Object.values(theAProjects)[i].dateCreated
+                  }</td>
+                  <td class="style4-2" onclick="showStats(${i})">${
+      Object.values(theAProjects)[i].projectName
+    }</td>
+                  <td class="style4-2" onclick="alert('kake')">${
+                    Object.values(theAProjects)[i].budgetHours
+                  }</td>
+                  <td class="style4-2">${
+                    Object.values(theAProjects)[i].sumTimeSpent
+                  }</td>
+                  <td class="style4-2">${
+                    Object.values(theAProjects)[i].setDeadline
+                  }</td>             
                  </tr>`;
   }
 
-  
+  html += `</table></div><div class="projectInsightSheet2"><table class="projectInsightSheetContent"><tr>`;
+
+  html += `
+  <td class="style4-2">${
+    Object.values(model.registerData.datestampNames)[0]
+  }</td>
+  <td class="style4-2">${
+    Object.values(model.registerData.datestampNames)[1]
+  }</td>
+  <td class="style4-2">${
+    Object.values(model.registerData.datestampNames)[2]
+  }</td>
+  <td class="style4-2">${
+    Object.values(model.registerData.datestampNames)[3]
+  }</td>
+  <td class="style4-2">${
+    Object.values(model.registerData.datestampNames)[4]
+  }</td>
 
 
-  // for (let i = 9; i < (Object.values(theAProjects.projectNo1).length); i++) {
-  // html += `<td class="style4-2">${Object.values(theAProjects.projectNo1)[i]}</td>
-  // </tr>`;
-  // }
-  html += `</table></div>`
+  <td class="style4-2">${
+    Object.values(model.registerData.datestampNames)[9]
+  }</td>
+  </tr>`;
+
+  html += projectStats;
+  html += `</table></div>`;
+
   document.getElementById('app').innerHTML = html;
 }
