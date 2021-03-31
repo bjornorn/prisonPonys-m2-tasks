@@ -1,6 +1,6 @@
 let html = '';
 
-//***MAIN VIEW***
+//***MAIN VIEW***00000
 function updateView() {
   todayTotalHours(); //tell opp dagen registrerte timer
   html = '';
@@ -14,7 +14,7 @@ function updateView() {
   document.getElementById('app').innerHTML = html;
 }
 
-// ***TIME REGISTRERING VIEW***
+// ***TIME REGISTRERING VIEW***11111
 // TEGNE OPP NY REGISTRERING FELT
 function hoursRegisterSheetView() {
   model.registerData.hourActualValue = model.registerData.hourDefaultValue;
@@ -71,7 +71,7 @@ function hoursRegisterSheetView() {
   html += `</div>`;
   document.getElementById('app').innerHTML = html;
 }
-// ***PROSJEKT REGISTERING VIEW***
+// ***PROSJEKT REGISTERING VIEW***22222
 function projectRegisterPageView() {
   html += `<div class="projectRegisterSheet"><table class="projectRegisterSheetContent">`;
   for (let i = 0; i < Object.keys(model.projectInfoRegister).length - 4; i++) {
@@ -89,14 +89,13 @@ function projectRegisterPageView() {
   document.getElementById('app').innerHTML = html;
 }
 
-// ***TIME OVERSIKT VIEW***
+// ***TIME OVERSIKT VIEW***33333
 function hoursOverviewPageView() {
   html += `<table class="styleMonth"><tr>`;
   html += `<td><a href="#"> Forrige måned</a></td> `;
   html += `<td><div><b>Janumary</b></div></td>`; /* input month for change */
   html += `<td><a href="#">Neste måned</a></td>`;
   html += `</tr></table>`;
-
   html += `<div class="TimeRegister">`;
   html += `<table><tr>`;
 
@@ -125,27 +124,57 @@ function hoursOverviewPageView() {
   document.getElementById('app').innerHTML = html;
 }
 
-// ***PROSJEKT OVERSIKT VIEW***
+// ***PROSJEKT OVERSIKT VIEW***44444
 function projectOverviewPageView() {
-  html += `<div class="projectRegisterSheet"><table class="projectRegisterSheetContent"><tr>`;
+  html += `<div class="projectInsightSheet"><table class="projectInsightSheetContent"><tr>`;
   
-  for (
-    let i = 0;
-    i < (Object.values(model.projectActiveRegister)[0].length) - 2; i++) {
-      html += `<td>${Object.values(model.projectActiveRegister)[0][i]}</td>`;      
+  for (let i = 0; i < (Object.values(model.projectActiveRegister)[0].length) - 2; i++) {
+      html += `<td class="style4-2">${Object.values(model.projectActiveRegister)[0][i]}</td>`;      
     }
 
     html += `</tr>`;
+    n = 0;
     for (let i = 0; i < Object.keys(theAProjects).length; i++) {
       html += `<tr>
-                  <td class="style2">${Object.values(theAProjects)[i].dateCreated}</td>
-                  <td>${Object.values(theAProjects)[i].projectName}</td>
-                  <td>${Object.values(theAProjects)[i].budgetHours}</td>
-                  <td>${Object.values(theAProjects)[i].sumTimeSpent}</td>
-                  <td class="style2">${Object.values(theAProjects)[i].setDeadline}</td>
+                  <td class="style4-2">${Object.values(theAProjects)[i].dateCreated}</td>
+                  <td class="style4-2" onclick="n = ${i}">${Object.values(theAProjects)[i].projectName}</td>
+                  <td class="style4-2" onclick="alert('kake')">${Object.values(theAProjects)[i].budgetHours}</td>
+                  <td class="style4-2">${Object.values(theAProjects)[i].sumTimeSpent}</td>
+                  <td class="style4-2">${Object.values(theAProjects)[i].setDeadline}</td>
              
                  </tr>`;
   }
-  html += `</table></div>`;
+  html += `</table></div><div class="projectInsightSheet2"><table class="projectInsightSheetContent"><tr>`;
+ 
+  html += `
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[0]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[1]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[2]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[3]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[4]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[7]}</td>
+  `;
+
+  // html += `<tr>${seHerJa}`;
+  for (let i = 1; i < (Object.keys(Object.values(theAProjects)[n]).length - 8); i++) {
+    html += `<tr>
+                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][0]}</td>
+                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][1]}</td>
+                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][4]}</td>
+                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][5]}</td>
+                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][2]}</td>
+                <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][8]}</td>
+    
+                 </tr>`;
+  }
+
+  
+
+
+  // for (let i = 9; i < (Object.values(theAProjects.projectNo1).length); i++) {
+  // html += `<td class="style4-2">${Object.values(theAProjects.projectNo1)[i]}</td>
+  // </tr>`;
+  // }
+  html += `</table></div>`
   document.getElementById('app').innerHTML = html;
 }

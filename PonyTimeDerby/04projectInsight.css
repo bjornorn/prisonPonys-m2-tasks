@@ -1,0 +1,73 @@
+.projectInsightSheet {
+    border-radius: 25px;
+    background-color: rgb(61, 66, 71);
+    position: fixed;
+    left: 15vw;
+    top: 5vh;
+    width: 80vw;
+    height: 20vh;
+    color: #99aab5;
+    padding-left: 0vw;
+  }
+
+.projectInsightSheet2 {
+    border-radius: 25px;
+    background-color: rgb(61, 66, 71);
+    position: fixed;
+    left: 15vw;
+    top: 30vh;
+    width: 80vw;
+    height: 60vh;
+    color: #99aab5;
+    padding-left: 0vw;
+  }
+  
+  .projectInsightSheetContent {
+    position: relative;
+    top: 1vh;
+    left: 1vw;
+    /* width: 40vw;   */
+    font-size: 1.4vw;
+    /* min-width: 50%; */
+  }
+
+  .th4,
+.td4 {
+  border-collapse: collapse;
+  border: 1px solid white;
+  color: #99aab5;
+  padding: 1px;
+  font-size: 1vw;
+  width: 30px;
+}
+.style4-1 {
+  width: 15vw;
+  float: left;
+  clear: left;
+}
+.style4-2 {
+  min-width: 10vw;
+  text-align: center;
+  }
+
+.style4-3 {
+  width: 15vw; 
+  clear: left;
+}
+
+
+    
+
+    
+  
+    
+
+
+    
+
+    
+
+    
+    
+
+    

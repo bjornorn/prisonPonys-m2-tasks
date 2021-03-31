@@ -27,4 +27,6 @@ KANSKJE EN DAG I FRAMTIDA:
                  <td>${Object.values(model.projectActiveRegister)[i][1]}</td>
                  <td>${Object.values(model.projectActiveRegister)[i][2]}</td>
                  <td>${Object.values(model.projectActiveRegister)[i][3]}</td>
-                 <td>${Object.values(model.projectActiveRegister)[i][4]}</td>
+                 <td>${Object.values(model.projectActiveRegister)[i][4]}</td>)
+
+                 

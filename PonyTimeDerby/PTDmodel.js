@@ -17,6 +17,8 @@ let m = ('0' + (currentDate.getMonth() + 1)).slice(-2);
 let y = currentDate.getFullYear();
 let iDag = y + '-' + m + '-' + d;
 
+let seHerJa = '';
+
 const model = {
 
  
@@ -87,10 +89,31 @@ registerData: {
     dataType: ['text', 'text', 'number', 'date', 'date', 'number', 'number', 'number'],
     actualValue: ['', '', '', '', '', '', '', ''],
     // Til TIME REGISTERING
-    datestampInfo: ['dateStamp', 'startTime', 'stoptime', 'pauseTrueFalse',
-                'pauseStart', 'pauseStop', 'sumHours', 'sumMinutes', 'totalTime'],
+    datestampNames: [
+        'Dato', 
+        'Startet', 
+        'Pause Startet', 
+        'Pause Stoppet', 
+        'Ferdig', 
+        'Prosjekt Navn',
+        'Var det pause',
+        'Sum Timer', 
+        'Sum Minutter', 
+        'Tid Brukt'],
+
+    datestampInfo: [
+        'dateStamp', 
+        'startTime', 
+        'pauseStart', 
+        'pauseStop', 
+        'stoptime', 
+        'projectName',
+        'pauseTrueFalse',
+        'sumHours', 
+        'sumMinutes', 
+        'totalTime'],
     dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
-    hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', '', '', '', ''],
+    hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', true, '', '', ''],
     hourActualValue: ['', '', '', '', '', '', '', '', '', ''],
 
 },
