@@ -8,14 +8,16 @@ FERDIG: Lage timeregistrering side som ser akseptabel ut
 # Timeregistering: lage felt for hva som er registrert i dag
 * Lage funksjon for å registrere prosjekt
 * Få fram skjema "registrer timer"
-
-AKTIVE OPPGAVER:
 * Lage "OVERSIKT TIMER" view
 * Lage funksjon for "registrer timer"
+* Lage "PROSJEKT REGISTERING" view
+
+AKTIVE OPPGAVER:
+* Lage "OVERSIKT PROSJEKTER" view - vise hvilket prosjekt som er framme
+* Style oversikt timer
+* kontrollere alle funksjoner laget til nå
 
 FREMTIDIGE OPPGAVER
-* Lage "PROSJEKT REGISTERING" view
-* Lage "OVERSIKT PROSJEKTER" view
 * Forbedre funksjon for "registrer timer"
 * Forbedre funksjon for å registrere prosjekt
 

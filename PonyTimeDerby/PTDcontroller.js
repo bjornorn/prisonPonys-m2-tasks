@@ -26,22 +26,26 @@ function projectOverviewView() {
 
 // REGISTER TIME FUNCTIONS
 function registerCurrentHours() {
-  calculateWorkTime();
+    calculateWorkTime();
+  
   rightfulObj = model.registerData.hourActualValue[5];
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-    if (rightfulObj == Object.values(theAProjects)[i].projectName) {
-      rightfulObj = Object.values(theAProjects)[i];
-      keyCount = Object.keys(rightfulObj).length - 9 + 1;
-      datestamp = 'datestamp' + keyCount.toString();
-      rightfulObj[datestamp] = model.registerData.hourActualValue;
+    if (rightfulObj === Object.values(theAProjects)[i].projectName) {
+      
+      // old Shool
+      rightfulObj = Object.values(theAProjects)[i];     
+      keyCount = Object.keys(rightfulObj).length - 8;  
+      datestamp = ('datestamp' + keyCount).toString();
+      rightfulObj[datestamp] = model.registerData.hourActualValue;    
       // console.log(rightfulObj);
-      console.log(i);
-      calcSpentHrsToday(i);
-      updateView();
-      hoursRegisterSheetView();
-      // console.log(datestamp);
+      console.log(datestamp);
+      console.log(rightfulObj);      
     }
-  }
+    else {alert('NEI' + i)}
+    console.log('hei')
+  }  
+  updateView();
+  hoursRegisterSheetView();
 }
 
 // REGISTER PROJECT FUNCTIONS
@@ -144,7 +148,7 @@ function calcSpentHrsToday(i) {
         Object.values(theAProjects)[i]['datestamp' + j][7];
       // alert ('jippu');
     }
-    console.log('min før' + sumMinutesSpentToday);
+    // console.log('min før' + sumMinutesSpentToday);
     // console.log('timer før' + sumHoursSpentToday)
     if (sumMinutesSpentToday > 59) {
       sumHoursSpentToday++;
@@ -178,4 +182,53 @@ function todayTotalHours() {
   // console.log(hourMinute);
   tracking.todayHoursMinutes = hourMinute;
   // console.log(tracking.todayHoursMinutes);
+}
+
+function showHoursByMonth() {
+if (visningsMnd == undefined) {
+  visningsMnd = denneMnd
+}
+if (visningsAr == undefined) {
+  visningsAr = iDag.substr(0,4)
+}
+hourStats = '';
+for (let i = 0; i < Object.keys(theAProjects).length; i++) {
+  for (let j = 1; j < Object.keys(Object.values(theAProjects)[i]).length - 8; j++) {
+    if (Object.values(theAProjects)[i]['datestamp' + j][0].substr(5,2) == ('0' + (1 + visningsMnd).toString()).slice(-2)
+    && (Object.values(theAProjects)[i]['datestamp' + j][0].substr(0,4) == visningsAr)) {
+  // console.log('prosjektNo ' + i + 'Timestamp ' + j);
+    hourStats += `<tr>
+                  <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][0]}</td>
+                  <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][1]}</td>
+                  <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][2]}</td>
+                  <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][3]}</td>
+                  <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][4]}</td>
+                  <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][5]}</td>
+                  <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][8]}</td>
+                  </tr>`;
+    }
+  }
+}
+}
+
+function forrigeMnd() {
+  visningsMnd--
+  if (visningsMnd < 0) {
+      visningsMnd = visningsMnd +12;
+      visningsAr = visningsAr -1;
+  }
+// console.log(('0' + (1 + visningsMnd).toString()).slice(-2))  
+updateView();
+hoursOverviewPageView();
+}
+
+function nesteMnd() {
+  visningsMnd++
+  if (visningsMnd > 11) {
+      visningsMnd = visningsMnd -12;
+      visningsAr = visningsAr +1;
+  }
+// console.log(('0' + (1 + visningsMnd).toString()).slice(-2))  
+updateView();
+hoursOverviewPageView();
 }

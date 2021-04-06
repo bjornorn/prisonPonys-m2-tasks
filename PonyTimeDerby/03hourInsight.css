@@ -1,42 +1,71 @@
-.TimeRegister {                 /* oversikt timer */
+.styleMonth{
+  background-color: rgb(61, 66, 71);
+  position:fixed;
+  top:5vh;
+  left:15vw;
+  border-radius: 25px;
+  width:25vw;
+  /* border:3px double gold; */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+}
+
+.infoPlace {                
+  position:fixed;
+  border-radius: 25px ;
+  top: 12vh;
+  left: 15vw;
+  width:70vw;
+  height:85vh;
+  background-color: rgb(61, 66, 71);      
+  /* background-color: blue; */
+    }
+.infoPlace2 {                
+  position:fixed;  
+  border-radius: 25px ;
+  top: 15vh;
+  left: 15vw;
+  width:68vw;
+  margin-left: 1vw;
   
-    display: flex;
-      flex-wrap: wrap;
-      position:relative;
-      border:2px solid red;
-      color: aqua;
-      border-radius: 24px ;
-      top:25vh;
-      right:-1vw;
-      width:70vw;
-      height:60vh;
-      
-      
+  height:80vh;
+  overflow-y: scroll;
+  /* background-color: red; */
+
     }
-    .styleTimereg {
-      /* border-bottom: ; */
-      min-width: 9vw;
+    .styleTimereg1 {
+      width: 9vw;
       text-align: center;
-      float: left;
+      /* border-bottom: ; */
+      /* max-width: 9vw; */
+ 
+      /* float: left; */
     }
-    .TimeRegister2{
-      display: flex;
-      flex-wrap: wrap;
-      position:relative;
-      height:50vh;
-      top:3vh;
-      width:100vw;
-      overflow-y: scroll;
+    .styleTimereg2{
+      width: 9vw;
+      text-align: center;
+    
+      /* display: flex; */
+      /* flex-wrap: wrap; */
+      /* position:relative; */
+      /* top: 1vh; */
+      /* height:75vh; */
+      /* top:1vh; */
+      /* left: 1vw; */
+      /* width:100vw; */
+      /* overflow-y: scroll; */
     
     }
     
-    .styleMonth{
-      display: flex;
-      flex-wrap: wrap;
-      position:relative;
-      top:24.5vh;
-      left:4vw;
-      border-radius: 50px 20px;
-      border:3px double gold;
-      width:25vw;
+
+    .projectInsightSheet {
+      border-radius: 25px;
+      background-color: rgb(61, 66, 71);
+      position: fixed;
+      left: 15vw;
+      top: 5vh;
+      width: 80vw;
+      height: 20vh;
+      color: #99aab5;
+      padding-left: 0vw;
     }

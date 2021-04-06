@@ -3,7 +3,6 @@ let html = '';
 //***MAIN VIEW***00000
 function updateView() {
   todayTotalHours(); //tell opp dagen registrerte timer
-  console.log('timer telt')
   html = '';
   // html += `<div class='header'>${navButtons[0]}</div>`;
   html += `<div class='sidebar'>`;
@@ -18,6 +17,11 @@ function updateView() {
 // ***TIME REGISTRERING VIEW***11111
 // TEGNE OPP NY REGISTRERING FELT
 function hoursRegisterSheetView() {
+  for (let i = 0; i < Object.keys(theAProjects).length; i++) {
+      calcSpentHrsToday(i);
+    }
+    todayTotalHours();
+
   model.registerData.hourActualValue = model.registerData.hourDefaultValue;
   html += `<div class="hoursRegisterSheet">`;
   html += `<div><h2>Ny Registrering</h2></div>`;
@@ -94,35 +98,32 @@ function projectRegisterPageView() {
 
 // ***TIME OVERSIKT VIEW***33333
 function hoursOverviewPageView() {
-  html += `<table class="styleMonth"><tr>`;
-  html += `<td><a href="#"> Forrige måned</a></td> `;
-  html += `<td><div><b>Janumary</b></div></td>`; /* input month for change */
-  html += `<td><a href="#">Neste måned</a></td>`;
-  html += `</tr></table>`;
-  html += `<div class="TimeRegister">`;
-  html += `<table><tr>`;
+  showHoursByMonth();
 
-  for (let i = 0; i < Object.values(hoursJanuary.dInfo).length; i++) {
-    html += `<td class="styleTimereg">${
-      Object.values(hoursJanuary.dInfo)[i]
-    }</td>`;
-  }
+  html += `<table class="styleMonth"><tr>`;
+  html += `<td onclick="forrigeMnd()">Forrige måned</td> `;
+  html += `<td><b>${kalenderMnd[visningsMnd]}<br> ${visningsAr}</b></td>`; /* input month for change */
+  html += `<td onclick="nesteMnd()">Neste måned</td>`;
   html += `</tr></table>`;
-  html += `<div class="TimeRegister2">`;
+
+  html += `<div class="infoPlace">`;
   html += `<table>`;
 
-  for (let i = 1; i < Object.keys(hoursJanuary).length; i++) {
-    html += `<tr>
-       <td class="styleTimereg">${Object.values(hoursJanuary)[i][0]}</td>
-       <td class="styleTimereg">${Object.values(hoursJanuary)[i][1]}</td>
-       <td class="styleTimereg">${Object.values(hoursJanuary)[i][2]}</td>
-       <td class="styleTimereg">${Object.values(hoursJanuary)[i][3]}</td>
-       <td class="styleTimereg">${Object.values(hoursJanuary)[i][4]}</td>
-       <td class="styleTimereg">${Object.values(hoursJanuary)[i][5]}</td>       
-            </tr>`;
-  }
-
-  html += `</table> </div></div>`;
+  
+    html += `
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[0]}</td>
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[1]}</td>
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[2]}</td>
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[3]}</td>
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[4]}</td>
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[5]}</td>
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[9]}</td>
+    `;
+  
+  html += `</table>`;
+  html += `</div><div class="infoPlace2"><table>${hourStats}</table>`;
+  
+  html += ` </div>`;
 
   document.getElementById('app').innerHTML = html;
 }

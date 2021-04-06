@@ -17,7 +17,13 @@ let m = ('0' + (currentDate.getMonth() + 1)).slice(-2);
 let y = currentDate.getFullYear();
 let iDag = y + '-' + m + '-' + d;
 
+let kalenderMnd = ['Januar','Februar','Mars','April','Mai','juni','juli','August','September','Oktober','November','Desember'];
+let denneMnd = iDag.substr(5, 2) -1;
+let visningsMnd;
+let visningsAr;
+
 let projectStats = '';
+let hourStats = '';
 
 const model = {
 
