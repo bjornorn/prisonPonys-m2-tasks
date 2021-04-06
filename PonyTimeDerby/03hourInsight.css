@@ -44,6 +44,8 @@
     .styleTimereg2{
       width: 9vw;
       text-align: center;
+      border-bottom: 1px solid whitesmoke;
+
     
       /* display: flex; */
       /* flex-wrap: wrap; */

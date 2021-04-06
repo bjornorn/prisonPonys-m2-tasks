@@ -36,13 +36,16 @@ function registerCurrentHours() {
       rightfulObj = Object.values(theAProjects)[i];     
       keyCount = Object.keys(rightfulObj).length - 8;  
       datestamp = ('datestamp' + keyCount).toString();
-      rightfulObj[datestamp] = model.registerData.hourActualValue;    
+      
+
+      rightfulObj[datestamp] = model.registerData.hourActualValue.slice(); 
+
+    
       // console.log(rightfulObj);
       console.log(datestamp);
-      console.log(rightfulObj);      
+      // console.log(rightfulObj);      
     }
-    else {alert('NEI' + i)}
-    console.log('hei')
+  
   }  
   updateView();
   hoursRegisterSheetView();
