@@ -1,4 +1,4 @@
-.projectInsightSheet {
+.infoField4-1 {
     border-radius: 25px;
     background-color: rgb(61, 66, 71);
     position: fixed;
@@ -10,23 +10,48 @@
     padding-left: 0vw;
   }
 
-.projectInsightSheet2 {
+.infoField4-2 {
     border-radius: 25px;
     background-color: rgb(61, 66, 71);
     position: fixed;
     left: 15vw;
     top: 30vh;
     width: 80vw;
-    height: 60vh;
+    height: 5vh;
     color: #99aab5;
     padding-left: 0vw;
   }
   
-  .projectInsightSheetContent {
+  .infoField4-3 {
+    border-radius: 25px;
+    background-color: grey;
+    position: relative;
+    left: 0vw;
+    top: 35vh;
+    width: 80vw;
+    height: 60vh;
+    color: #99aab5;
+    padding-left: 0vw;
+    color: white;
+    overflow-y: scroll;
+  }
+  .infoContent4-1 {
+    position: relative;
+    /* top: 1vh; */
+    left: 1vw;
+    /* width: 40vw;   */
+    font-size: 1.4vw;
+    /* min-width: 50%; */
+  }
+  
+  .infoContent4-2 {
     position: relative;
     top: 1vh;
     left: 1vw;
-    /* width: 40vw;   */
+    width: 40vw;
+    height: 30vh;   
+    /* overflow-y: hidden; */
+  
     font-size: 1.4vw;
     /* min-width: 50%; */
   }
@@ -46,7 +71,7 @@
   clear: left;
 }
 .style4-2 {
-  min-width: 6vw;
+  min-width: 8vw;
   text-align: center;
   /* border: 1px solid white; */
   }

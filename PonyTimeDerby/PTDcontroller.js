@@ -34,7 +34,7 @@ function registerCurrentHours() {
       
       // old Shool
       rightfulObj = Object.values(theAProjects)[i];     
-      keyCount = Object.keys(rightfulObj).length - 8;  
+      keyCount = Object.keys(rightfulObj).length - 11;  
       datestamp = ('datestamp' + keyCount).toString();
       
 
@@ -66,6 +66,9 @@ function registerActiveProject() {
   theAProjects[navn].dateFinished = '';
   theAProjects[navn].sumTimeSpent = 0;
   theAProjects[navn].sumTimeSpentToday = [0, 0];
+  theAProjects[navn].projectLeader = '',
+  theAProjects[navn].activeParticipants = model.registerData.actualValue[4];
+  theAProjects[navn].historicParticipants = [],
   theAProjects[navn].datestampInfo = [
     'dateStamp',
     'startTime',
@@ -76,6 +79,7 @@ function registerActiveProject() {
     'sumHours',
     'sumMinutes',
     'totalTime',
+    'participant',
   ];
 }
 
@@ -135,13 +139,13 @@ function calcSpentHrsToday(i) {
   let sumHoursSpentToday = 0;
   let sumMinutesSpentToday = 0;
   // for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-  // console.log(Object.keys(Object.values(theAProjects)[i]).length - 9);
+  // console.log(Object.keys(Object.values(theAProjects)[i]).length - 12);
   for (
     let j = 1;
-    j < Object.keys(Object.values(theAProjects)[i]).length - 8;
+    j < Object.keys(Object.values(theAProjects)[i]).length - 11;
     j++
   ) {
-    // console.log('what ' + Object.values(theAProjects.projectNo3)[j + 8]);
+    // console.log('what ' + Object.values(theAProjects.projectNo3)[j + 11]);
 
     if (Object.values(theAProjects)[i]['datestamp' + j][0] == iDag) {
       sumHoursSpentToday =
@@ -196,7 +200,7 @@ if (visningsAr == undefined) {
 }
 hourStats = '';
 for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-  for (let j = 1; j < Object.keys(Object.values(theAProjects)[i]).length - 8; j++) {
+  for (let j = 1; j < Object.keys(Object.values(theAProjects)[i]).length - 11; j++) {
     if (Object.values(theAProjects)[i]['datestamp' + j][0].substr(5,2) == ('0' + (1 + visningsMnd).toString()).slice(-2)
     && (Object.values(theAProjects)[i]['datestamp' + j][0].substr(0,4) == visningsAr)) {
   // console.log('prosjektNo ' + i + 'Timestamp ' + j);
@@ -234,4 +238,49 @@ function nesteMnd() {
 // console.log(('0' + (1 + visningsMnd).toString()).slice(-2))  
 updateView();
 hoursOverviewPageView();
+}
+
+function addUser2Project(n) {
+  let selected = document.getElementById('user' + n)
+  selected.classList.toggle("selectedUser");
+
+  if (Object.values(userdata)[n].activeInProject == false) {
+    Object.values(userdata)[n].activeInProject = true;
+    Object.values(model.registerData.actualValue)[4].push(Object.values(userdata)[n].username)
+  }
+
+  else if (Object.values(userdata)[n].activeInProject == true) {
+    Object.values(userdata)[n].activeInProject = false;
+    Object.values(model.registerData.actualValue)[4].pop(Object.values(userdata)[n].username)
+  }
+
+}
+
+function showStats(n) {
+  projectStats = ''; 
+
+  for (let i = 1; i < Object.keys(Object.values(theAProjects)[n]).length - 11; i++) {
+    projectStats += `<tr>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][0]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][1]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][2]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][3]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][4]
+                }</td>
+                <td class="style4-2">${
+                  Object.values(theAProjects)[n]['datestamp' + i][8]
+                }</td>    
+                 </tr>`;
+    }
+  updateView();
+  projectOverviewPageView();
 }

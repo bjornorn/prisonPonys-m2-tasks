@@ -24,9 +24,30 @@
     border-radius: 15px;
     color: #99aab5;
     background-color: #33393d;
-    top: 15vh;
-    left: 12vw;
+    top: 5vh;
+    left: 7vw;
     height: 7vh;
     width: 20vw;
     font-size: 2.5vh;
+    }
+
+    #deltagere {
+      vertical-align: text-top;
+    }
+
+    .allUsers {
+      background-color: aliceblue;
+      border: 2px solid black;
+      color: black;
+      max-width: 7vw;
+      text-align: center;
+      padding-bottom: 0.3vh;
+      padding-top: 0.3vh;
+      user-select: none;
+      position: relative;
+      top: 0.1vh;
+    }
+    
+    .selectedUser {
+      background-color: gray;
     }

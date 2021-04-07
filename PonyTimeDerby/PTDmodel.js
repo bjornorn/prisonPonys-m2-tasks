@@ -46,6 +46,7 @@ projectInfoRegister: {
     projectName: 'Gi Prosjektet et navn',
     budgetHours: 'Hvor mange timer er budsjetert',
     setDeadline: 'Når skal prosjektet være ferdig',
+    participants: [],
     dateCreated: '',
     dateFinished: '',
     sumTimeSpent: '',
@@ -84,12 +85,12 @@ registerData: {
 
     
     // Til PROSJEKT REGISTRERING
-    dataType: ['text', 'text', 'number', 'date', 'date', 'number', 'number', 'number'],
-    actualValue: ['', '', '', '', '', '', '', ''],
+    dataType: ['text', 'text', 'number', 'date', [], 'date', 'number', 'number', 'number'],
+    actualValue: ['', '', '', '', [], '', '', '', ''],
     // Til TIME REGISTERING
     datestampNames: [
         'Dato', 
-        'Startet', 
+      'Startet', 
         'Pause Startet', 
         'Pause Stoppet', 
         'Ferdig', 
@@ -97,8 +98,8 @@ registerData: {
         'Var det pause',
         'Sum Timer', 
         'Sum Minutter', 
-        'Tid Brukt'],
-
+        'Tid Brukt',
+        'participant'],
     datestampInfo: [
         'dateStamp', 
         'startTime', 
@@ -109,12 +110,47 @@ registerData: {
         'pauseTrueFalse',
         'sumHours', 
         'sumMinutes', 
-        'totalTime'],
+        'totalTime',
+        'participant'],
     dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
-    hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', true, '', '', ''],
-    hourActualValue: ['', '', '', '', '', '', '', '', '', ''],
+    hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', true, '', '', '', ''],
+    hourActualValue: ['', '', '', '', '', '', '', '', '', '', ''],
 
 },
+
+users: {
+
+    username: '',
+    password: '',                                                  
+    userType: '',                       
+    userID:   '',
+    phonenumber: '',
+    email: '',
+    activeInProject: false,
+},
+
+currentUser: {
+    username: 'Dina',
+},
+
+userTypes : {
+
+    "Admin":{
+    userID: '',
+    },
+
+    "Team-leder":{
+    userID: '', 
+        
+    },
+
+    "Bruker":{
+    userID:'',
+        
+    },
+
+
+}
 };
 let activeProjectsList = '';
 // let recordCount = Object.keys(theAProjects).length;

@@ -10,7 +10,7 @@ function updateView() {
     // html += `<div class='navButtons'>${i}</div>`;
     html += `<button class='navButtons' type="button" onclick="${model.navView[i]}()">${model.navButtons[i]}</button>`;
   }
-  html += `</div>`;
+  html += `<div class="userInfo"></br>Logget inn som:<br><b>${model.currentUser.username}</b><br><button>Logg Ut</button></div></div>`;
   document.getElementById('app').innerHTML = html;
 }
 
@@ -80,17 +80,24 @@ function hoursRegisterSheetView() {
 }
 // ***PROSJEKT REGISTERING VIEW***22222
 function projectRegisterPageView() {
+  for (let i = 0; i < Object.keys(userdata).length; i++) {
+    Object.values(userdata)[i].activeInProject = false;
+  }
+
   html += `<div class="projectRegisterSheet"><table class="projectRegisterSheetContent">`;
-  for (let i = 0; i < Object.keys(model.projectInfoRegister).length - 4; i++) {
+  for (let i = 0; i < Object.keys(model.projectInfoRegister).length - 5; i++) {
     html += `<tr class="projectRegisterSheetContent"><td>${
       Object.values(model.projectInfoRegister)[i]
     }</td>
-        <td><input type="${model.registerData.dataType[i]}"
-        
+        <td><input type="${model.registerData.dataType[i]}"        
         oninput="model.registerData.actualValue[${i}] = this.value"/>
         </td></tr>`;
   }
-  html += `</table>`;
+  html += `<tr><td id="deltagere">Hvem skal delta på prosjektet?</td><td>`;
+  for (let i = 0; i < Object.keys(userdata).length; i++) {
+    html += `<p id="user${i}" class="allUsers" onclick="addUser2Project(${i})">${Object.values(userdata)[i].username}</p>`
+  }
+  html += `</td></tr></table>`;
   html += `<button class="clickButton" onclick="registerActiveProject()">Registrer nytt prosjekt</button>`;
   html += `</div>`;
   document.getElementById('app').innerHTML = html;
@@ -129,42 +136,10 @@ function hoursOverviewPageView() {
 }
 
 // ***PROSJEKT OVERSIKT VIEW***44444
-function showStats(n) {
-  projectStats = '';
 
-  for (
-    let i = 1;
-    i < Object.keys(Object.values(theAProjects)[n]).length - 8;
-    i++
-  ) {
-    projectStats += `<tr>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][0]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][1]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][2]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][3]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][4]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][8]
-                }</td>    
-                 </tr>`;
-  }
-
-  updateView();
-  projectOverviewPageView();
-}
 
 function projectOverviewPageView() {
-  html += `<div class="projectInsightSheet"><table class="projectInsightSheetContent"><tr>`;
+  html += `<div class="infoField4-1"><table class="infoContent4-1"><tr>`;
 
   for (
     let i = 0;
@@ -198,7 +173,7 @@ function projectOverviewPageView() {
                  </tr>`;
   }
 
-  html += `</table></div><div class="projectInsightSheet2"><table class="projectInsightSheetContent"><tr>`;
+  html += `</table></div><div class="infoField4-2"><table class="infoContent4-1"><tr>`;
 
   html += `
   <td class="style4-2">${
@@ -220,11 +195,10 @@ function projectOverviewPageView() {
 
   <td class="style4-2">${
     Object.values(model.registerData.datestampNames)[9]
-  }</td>
-  </tr>`;
-
-  html += projectStats;
-  html += `</table></div>`;
+  }</td>`;
+  
+  html += `</tr></table></div>`;
+  html += `<div class="infoField4-3"><table class="infoContent4-2">${projectStats}</table></div>`;
 
   document.getElementById('app').innerHTML = html;
 }
