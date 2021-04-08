@@ -10,25 +10,34 @@
   /* flex-wrap: wrap; */
 }
 
-.infoPlace {                
+.infoPlace0 {                
   position:fixed;
   border-radius: 25px ;
   top: 12vh;
   left: 15vw;
   width:70vw;
-  height:85vh;
+  height:15vh;
+  background-color: rgb(61, 66, 71);      
+  /* background-color: blue; */
+    }
+.infoPlace1 {                
+  position:fixed;
+  border-radius: 25px ;
+  top: 32vh;
+  left: 15vw;
+  width:70vw;
+  height:65vh;
   background-color: rgb(61, 66, 71);      
   /* background-color: blue; */
     }
 .infoPlace2 {                
   position:fixed;  
   border-radius: 25px ;
-  top: 15vh;
+  top: 35vh;
   left: 15vw;
   width:68vw;
-  margin-left: 1vw;
-  
-  height:80vh;
+  margin-left: 1vw;  
+  height:60vh;
   overflow-y: scroll;
   /* background-color: red; */
 

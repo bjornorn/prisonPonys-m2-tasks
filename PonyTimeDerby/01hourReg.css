@@ -27,9 +27,9 @@
 }
 
 .button {
-  position: fixed;
-  bottom: 15.5vh;
-  left: 59vw;
+  position: relative;
+  top: 14vh;
+  left: 22vw;
   border-radius: 25px;
   background-color: rgb(61, 61, 61);
   color: #99aab5;

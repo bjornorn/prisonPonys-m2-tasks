@@ -24,6 +24,11 @@ let visningsAr;
 
 let projectStats = '';
 let hourStats = '';
+let thisMonthsHours = '';
+let workOrSick = 'work';
+
+
+let activeUser = 'Andreas';
 
 const model = {
 
@@ -79,11 +84,7 @@ projectFinishedRegister: {
     projectRecord3: ['2021-03-29', 'Andreas Ninja Webshop', '45', '2', '2021-04-05', '', true],
 },
 
-
-
-registerData: {
-
-    
+registerData: {    
     // Til PROSJEKT REGISTRERING
     dataType: ['text', 'text', 'number', 'date', [], 'date', 'number', 'number', 'number'],
     actualValue: ['', '', '', '', [], '', '', '', ''],
@@ -99,7 +100,7 @@ registerData: {
         'Sum Timer', 
         'Sum Minutter', 
         'Tid Brukt',
-        'participant'],
+        'Deltager'],
     datestampInfo: [
         'dateStamp', 
         'startTime', 
@@ -113,8 +114,10 @@ registerData: {
         'totalTime',
         'participant'],
     dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
-    hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', true, '', '', '', ''],
+    hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', true, '', '', activeUser, ''],
     hourActualValue: ['', '', '', '', '', '', '', '', '', '', ''],
+
+    monthlyHours: {},
 
 },
 
@@ -129,9 +132,7 @@ users: {
     activeInProject: false,
 },
 
-currentUser: {
-    username: 'Dina',
-},
+
 
 userTypes : {
 
@@ -153,5 +154,6 @@ userTypes : {
 }
 };
 let activeProjectsList = '';
+
 // let recordCount = Object.keys(theAProjects).length;
 
