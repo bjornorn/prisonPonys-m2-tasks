@@ -25,7 +25,7 @@ let visningsAr;
 let projectStats = '';
 let hourStats = '';
 let thisMonthsHours = '';
-let workOrSick = 'work';
+let workOrSick = 'sick';
 
 
 let activeUser = 'Andreas';
@@ -60,13 +60,7 @@ projectInfoRegister: {
 
 hoursSheetForm: {
      description: ['Dato', 'Tid Startet', 'Pausen Startet', 'Pausen Stoppet', 'Tid Stoppet', 'Navn på prosjekt'],
-     hourRecord1: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Pony Time Derby'],
-     hourRecord2: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Get Academy - declaration of freedom'],
-     hourRecord3: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Dinas nabos borretips - webside'],
-     hourRecord4: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Pony Time Derby'],
-     hourRecord5: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Andreas Ninja Webshop'],
-     hourRecord6: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Linn sin kahoot database'],
-     hourRecord7: ['01.03.2021', '08:00', '11:30', '12:00', '16:00', 'Pony Time Derby'],
+     sickDescription: ['Dato', 'Tid Startet', 'Tid Stoppet', 'Årsak til fravær'],
  },
 // PROSJEKT OBJEKTER
 
@@ -87,7 +81,7 @@ projectFinishedRegister: {
 registerData: {    
     // Til PROSJEKT REGISTRERING
     dataType: ['text', 'text', 'number', 'date', [], 'date', 'number', 'number', 'number'],
-    actualValue: ['', '', '', '', [], '', '', '', ''],
+    actualValue: ['', '', '', '', [], iDag, '', '', ''],
     // Til TIME REGISTERING
     datestampNames: [
         'Dato', 
@@ -116,6 +110,10 @@ registerData: {
     dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
     hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', true, '', '', activeUser, ''],
     hourActualValue: ['', '', '', '', '', '', '', '', '', '', ''],
+   
+    sickProjectActiveRegister: ['Date', 'time', 'time', 'select'],
+    sickHourDefaultValue: [iDag, '08:00', '16:00', '', true, '', '', activeUser, ''],
+    sickHourActualValue: ['', '', '', '', '', '', '', '', ''],
 
     monthlyHours: {},
 

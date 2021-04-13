@@ -26,21 +26,29 @@ function registerCurrentHours() {
   rightfulObj = model.registerData.hourActualValue[5];
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
     if (rightfulObj === Object.values(theAProjects)[i].projectName) {
-      
       // old Shool
       rightfulObj = Object.values(theAProjects)[i];     
       keyCount = Object.keys(rightfulObj).length - 11;  
       datestamp = ('datestamp' + keyCount).toString();
-      
+      rightfulObj[datestamp] = model.registerData.hourActualValue.slice();            
+    }  
+  }  
+  updateView();
+  hoursRegisterSheetView();
+}
 
-      rightfulObj[datestamp] = model.registerData.hourActualValue.slice(); 
-
-    
-      // console.log(rightfulObj);
-      // console.log(datestamp);
-      // console.log(rightfulObj);      
-    }
+function registerCurrentHoursSick() {
+    // calculateWorkTime();
   
+  rightfulObj = model.registerData.sickHourActualValue[5];
+  for (let i = 0; i < Object.keys(theAbsence).length; i++) {
+    if (rightfulObj === Object.values(theAbsence)[i].projectName) {
+      // old Shool
+      rightfulObj = Object.values(theAbsence)[i];     
+      keyCount = Object.keys(rightfulObj).length - 11;  
+      datestamp = ('datestamp' + keyCount).toString();
+      rightfulObj[datestamp] = model.registerData.sickHourActualValue.slice();            
+    }  
   }  
   updateView();
   hoursRegisterSheetView();
@@ -183,34 +191,32 @@ function workRegister() {
 }
 
 function sickRegister() {
-  model.registerData.hourActualValue = model.registerData.hourDefaultValue;
+  model.registerData.sickHourActualValue = model.registerData.sickHourDefaultValue;
   html += `<div class="hoursRegisterSheet">`;
   html += `<div><h2>Ny Fravær Registering</h2></div>`;
-  html += `<table class="hoursRegisterSheetContent">`;
-  for (let i = 0; i < model.hoursSheetForm.description.length; i++) {
-    html += `<tr><td>${
-      Object.values(model.hoursSheetForm.description)[i]
-    }:</td></tr>`;
+  html += `<table class="hoursRegisterSheetContent0">
+            <tr><td>Fravær hele dagen:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><input type="checkbox"></input></td></tr></table><table  class="hoursRegisterSheetContent1">`;
+  for (let i = 0; i < model.hoursSheetForm.sickDescription.length; i++) {
+    html += `<tr><td>${Object.values(model.hoursSheetForm.sickDescription)[i]}:</td></tr>`;
   }
-  html += `</table><table class="hoursRegisterSheetContent2">`;
-  for (let i = 0; i < model.hoursSheetForm.description.length - 1; i++) {
-    html += `<tr><td><input type="${model.registerData.dtProjectActiveRegister[i]}"
-              value="${model.registerData.hourDefaultValue[i]}" 
-              oninput="model.registerData.hourActualValue[${i}] = this.value"/></td></tr>`;
+    html += `</table><table class="hoursRegisterSheetContent2">`;
+
+  for (let i = 0; i < model.hoursSheetForm.sickDescription.length - 1; i++) {
+    html += `<tr><td><input type="${model.registerData.sickProjectActiveRegister[i]}"
+              value="${model.registerData.sickHourDefaultValue[i]}" 
+              oninput="model.registerData.sickHourActualValue[${i}] = this.value"/></td></tr>`;
   }
   //Dropdown meny
-  html += `<tr><td><select id="psel" style="width: 200px" oninput="model.registerData.hourActualValue[${5}] = this.value">`;
-  for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-    html += `<option ${i}>${
-      Object.values(theAProjects)[i].projectName
-    }</option>`;
+  html += `<tr><td><select id="psel" style="width: 200px" oninput="model.registerData.sickHourActualValue[${5}] = this.value">`;
+  for (let i = 0; i < Object.keys(theAbsence).length; i++) {
+    html += `<option ${i}>${Object.values(theAbsence)[i].projectName}</option>`;
   }
   // value="${Object.values(theAProjects)[i].projectName}" LA STÅ!
 
   html += `<option selected="selected"></option></select></tr></td>`;
   html += `</table>`;
   html += `<button class="button" onclick="workOrSick = 'work'; updateView(); hoursRegisterSheetView();">Trykk her for å registrere vanlige timer</button>`;
-  html += `<button class="button" onclick="registerCurrentHours()">Registrer</button>`;
+  html += `<button class="button" onclick="registerCurrentHoursSick()">Registrer</button>`;
   html += `</div>`;
 }
 //222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
@@ -225,7 +231,7 @@ function registerActiveProject() {
   theAProjects[navn].projectName = model.registerData.actualValue[1];
   theAProjects[navn].budgetHours = model.registerData.actualValue[2];
   theAProjects[navn].setDeadline = model.registerData.actualValue[3];
-  theAProjects[navn].dateCreated = '';
+  theAProjects[navn].dateCreated = model.registerData.actualValue[5];
   theAProjects[navn].dateFinished = '';
   theAProjects[navn].sumTimeSpent = 0;
   theAProjects[navn].sumTimeSpentToday = [0, 0];
