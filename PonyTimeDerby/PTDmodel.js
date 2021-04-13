@@ -112,9 +112,13 @@ registerData: {
     hourActualValue: ['', '', '', '', '', '', '', '', '', '', ''],
    
     sickProjectActiveRegister: ['Date', 'time', 'time', 'select'],
-    sickHourDefaultValue: [iDag, '08:00', '16:00', '', true, '', '', activeUser, ''],
+    sickHourDefaultValue: [iDag, '08:00', '16:00', activeUser, '', '', '', ''],
     sickHourActualValue: ['', '', '', '', '', '', '', '', ''],
-
+    
+    sickCheckBox: {
+        checked: '',
+        
+    },
     monthlyHours: {},
 
 },

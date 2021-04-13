@@ -38,7 +38,8 @@ function registerCurrentHours() {
 }
 
 function registerCurrentHoursSick() {
-    // calculateWorkTime();
+
+    calculateAbsenceTime();
   
   rightfulObj = model.registerData.sickHourActualValue[5];
   for (let i = 0; i < Object.keys(theAbsence).length; i++) {
@@ -56,8 +57,7 @@ function registerCurrentHoursSick() {
 
 function calculateWorkTime() {
   let startTime = parseInt(model.registerData.hourActualValue[1].substr(0, 2));
-  let startMinutt = parseInt(
-    model.registerData.hourActualValue[1].substr(3, 2)
+  let startMinutt = parseInt(model.registerData.hourActualValue[1].substr(3, 2)
   );
   let stopTime = parseInt(model.registerData.hourActualValue[4].substr(0, 2));
   let stopMinutt = parseInt(model.registerData.hourActualValue[4].substr(3, 2));
@@ -106,7 +106,68 @@ function calculateWorkTime() {
   // console.log('min tot' + totalMin);
 }
 
+function calculateAbsenceTime() {
+  let startTime = parseInt(model.registerData.sickHourActualValue[1].substr(0, 2));
+  let startMinutt = parseInt(model.registerData.sickHourActualValue[1].substr(3, 2)
+  );
+  let stopTime = parseInt(model.registerData.sickHourActualValue[2].substr(0, 2));
+  let stopMinutt = parseInt(model.registerData.sickHourActualValue[2].substr(3, 2));
+
+
+  startSum = startTime * 60 + startMinutt;
+  stopSum = stopTime * 60 + stopMinutt;
+
+  // if (stopSum < startSum) {
+  //   stopSum += 1440; // et døgn er 1440 minutter  // }
+
+  sumMin = stopSum - startSum;
+  totalHour = Math.floor(sumMin / 60);
+  totalMin = sumMin - totalHour * 60;
+  // sleepTotalMsg =
+  // totalHour.toString() + ' timer og ' + totalMin.toString() + ' min';
+  // sleepTotal = totalHour + ':' + totalMin;
+
+  model.registerData.sickHourActualValue[6] = totalHour;
+  model.registerData.sickHourActualValue[7] = totalMin;
+  model.registerData.sickHourActualValue[8] = totalHour + ':' + totalMin;
+}
+
 function calcSpentHrsToday(i) {
+  let sumHoursSpentToday = 0;
+  let sumMinutesSpentToday = 0;
+  // for (let i = 0; i < Object.keys(theAProjects).length; i++) {
+  // console.log(Object.keys(Object.values(theAProjects)[i]).length - 12);
+  for (
+    let j = 1;
+    j < Object.keys(Object.values(theAProjects)[i]).length - 11;
+    j++
+  ) {
+    // console.log('what ' + Object.values(theAProjects.projectNo3)[j + 11]);
+
+    if (Object.values(theAProjects)[i]['datestamp' + j][0] == iDag) {
+      sumHoursSpentToday =
+        sumHoursSpentToday + Object.values(theAProjects)[i]['datestamp' + j][6];
+      sumMinutesSpentToday =
+        sumMinutesSpentToday +
+        Object.values(theAProjects)[i]['datestamp' + j][7];
+      // alert ('jippu');
+    }
+    // console.log('min før' + sumMinutesSpentToday);
+    // console.log('timer før' + sumHoursSpentToday)
+    if (sumMinutesSpentToday > 59) {
+      sumHoursSpentToday++;
+      sumMinutesSpentToday = sumMinutesSpentToday - 60;
+    }
+    // console.log('min etter' + sumMinutesSpentToday)
+    // console.log('timer etter' + sumHoursSpentToday)
+    //den hellige setning:
+    // console.log(Object.values(theAProjects)[i]['datestamp' + j][0])
+  }
+  Object.values(theAProjects)[i].sumTimeSpentToday[0] = sumHoursSpentToday;
+  Object.values(theAProjects)[i].sumTimeSpentToday[1] = sumMinutesSpentToday;
+}
+
+function sickCalcSpentHrsToday(i) {
   let sumHoursSpentToday = 0;
   let sumMinutesSpentToday = 0;
   // for (let i = 0; i < Object.keys(theAProjects).length; i++) {
@@ -195,14 +256,16 @@ function sickRegister() {
   html += `<div class="hoursRegisterSheet">`;
   html += `<div><h2>Ny Fravær Registering</h2></div>`;
   html += `<table class="hoursRegisterSheetContent0">
-            <tr><td>Fravær hele dagen:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><input type="checkbox"></input></td></tr></table><table  class="hoursRegisterSheetContent1">`;
+            <tr><td>Fravær hele dagen:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+            <td><input type="checkbox" value="false" 
+            onclick="sickCheckBox()" ${model.registerData.sickCheckBox.checked}></input></td></tr></table><table  class="hoursRegisterSheetContent1">`;
   for (let i = 0; i < model.hoursSheetForm.sickDescription.length; i++) {
     html += `<tr><td>${Object.values(model.hoursSheetForm.sickDescription)[i]}:</td></tr>`;
   }
     html += `</table><table class="hoursRegisterSheetContent2">`;
 
   for (let i = 0; i < model.hoursSheetForm.sickDescription.length - 1; i++) {
-    html += `<tr><td><input type="${model.registerData.sickProjectActiveRegister[i]}"
+    html += `<tr><td><input id="sickInput${i}" type="${model.registerData.sickProjectActiveRegister[i]}"
               value="${model.registerData.sickHourDefaultValue[i]}" 
               oninput="model.registerData.sickHourActualValue[${i}] = this.value"/></td></tr>`;
   }
@@ -218,6 +281,30 @@ function sickRegister() {
   html += `<button class="button" onclick="workOrSick = 'work'; updateView(); hoursRegisterSheetView();">Trykk her for å registrere vanlige timer</button>`;
   html += `<button class="button" onclick="registerCurrentHoursSick()">Registrer</button>`;
   html += `</div>`;
+
+  
+}
+
+
+
+function sickCheckBox() {
+ let checkBox = document.getElementById('sickCheck');
+if (model.registerData.sickCheckBox.checked == '') {
+  model.registerData.sickHourActualValue[1] = '08:00';
+  model.registerData.sickHourActualValue[2] = '15:30';
+ model.registerData.sickCheckBox.checked = 'checked';
+//  let sickStart = document.getElementById('sickInput1');
+//  sickStart.type = 'text';
+//  sickStart.innerHTML = 'kake';
+ hoursRegisterSheetView();
+}
+else if (model.registerData.sickCheckBox.checked == 'checked') {
+  model.registerData.sickHourActualValue[1] = '08:00';
+  model.registerData.sickHourActualValue[2] = '16:00';
+ model.registerData.sickCheckBox.checked = '';
+ hoursRegisterSheetView();
+}
+
 }
 //222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
 // REGISTER PROJECT FUNCTIONS
