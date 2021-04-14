@@ -25,6 +25,7 @@ let visningsAr;
 let projectStats = '';
 let hourStats = '';
 let thisMonthsHours = '';
+let thisMonthsSickHours = ['', '', '', ''];
 let workOrSick = 'sick';
 
 

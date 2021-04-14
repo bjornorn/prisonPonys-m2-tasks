@@ -27,56 +27,43 @@ body {
 }
 
 .navButtons {
-  display: flex;
-  flex-wrap: wrap;
   background-color: rgb(61, 66, 71);
   color: #99aab5;
   width: 12vw;
   height: 10vh;
-  margin-top: 8vh;
-  margin-left: 1vw;
-  
-
-  
-  /* margin: 5px; */
+  margin-top: 3vh;
+  margin-left: 1vw;  
   border-radius: 20px;
   text-align: center;
   font-size: 1.5vw;
-  padding-top: 5px;
+  padding-top: 1px;
+  position: relative;
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* margin: 5px; */
 }
 
-a {                         /*a href styling vi kommer på hva vi skal gjøre viss vi får flere */
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 16px;
-  color: #39FF14;
-}
-
-a:hover {                             /*a href styling vi kommer på hva vi skal gjøre viss vi får flere */
-  
-  color: white;
-}
 .navButtons:hover {
-  display: flex;
-  flex-wrap: wrap;
-  background-image: none;
   background-color: #33393d;
   color: black;
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* background-image: none; */
 }
-
-
 
 .userInfo {
   background-color: #33393d;
-  width: 10vw;
-  height: 12vh;
-  position: fixed;
-  bottom: 1vw;
-  left: 1vw;
-  border-radius: 25px;
   color: #99aab5;
+  width: 12vw;
+  height: 20vh;  
+  border-radius: 25px;
   font-size: 1vw;
+  margin-left: 1vw;  
   text-align: center;
+  position: relative;
+  top: 22vh;
+  left: 0vw;
 }
+
 
 

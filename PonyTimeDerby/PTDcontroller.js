@@ -137,19 +137,12 @@ function calcSpentHrsToday(i) {
   let sumMinutesSpentToday = 0;
   // for (let i = 0; i < Object.keys(theAProjects).length; i++) {
   // console.log(Object.keys(Object.values(theAProjects)[i]).length - 12);
-  for (
-    let j = 1;
-    j < Object.keys(Object.values(theAProjects)[i]).length - 11;
-    j++
-  ) {
+  for (let j = 1; j < Object.keys(Object.values(theAProjects)[i]).length - 11; j++) {
     // console.log('what ' + Object.values(theAProjects.projectNo3)[j + 11]);
 
     if (Object.values(theAProjects)[i]['datestamp' + j][0] == iDag) {
-      sumHoursSpentToday =
-        sumHoursSpentToday + Object.values(theAProjects)[i]['datestamp' + j][6];
-      sumMinutesSpentToday =
-        sumMinutesSpentToday +
-        Object.values(theAProjects)[i]['datestamp' + j][7];
+      sumHoursSpentToday = sumHoursSpentToday + Object.values(theAProjects)[i]['datestamp' + j][6];
+      sumMinutesSpentToday = sumMinutesSpentToday + Object.values(theAProjects)[i]['datestamp' + j][7];
       // alert ('jippu');
     }
     // console.log('min før' + sumMinutesSpentToday);
@@ -365,7 +358,7 @@ if (visningsMnd == undefined) {
 if (visningsAr == undefined) {
   visningsAr = iDag.substr(0,4)
 }
-
+// sjekk timer i AProject
 thisMonthsHours = '';
 thisMonthsHoursCalc = 0;
 thisMonthsMinsCalc = 0;
@@ -373,10 +366,11 @@ hourStats = '';
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
     for (let j = 1; j < Object.keys(Object.values(theAProjects)[i]).length - 11; j++) {
       if (Object.values(theAProjects)[i]['datestamp' + j][0].substr(5,2) == ('0' + (1 + visningsMnd).toString()).slice(-2)
-      && (Object.values(theAProjects)[i]['datestamp' + j][0].substr(0,4) == visningsAr) && (Object.values(theAProjects)[i]['datestamp' + j][9] == activeUser)) {
+      && (Object.values(theAProjects)[i]['datestamp' + j][0].substr(0,4) == visningsAr) 
+      && (Object.values(theAProjects)[i]['datestamp' + j][9] == activeUser)) {
       // console.log('prosjektNo ' + i + 'Timestamp ' + j);
  
-        hourStats += `<tr>
+        hourStats += `<tr class="styleTimereg2">
                       <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][0]}</td>
                       <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][1]}</td>
                       <td class="styleTimereg2">${Object.values(theAProjects)[i]['datestamp' + j][2]}</td>
@@ -396,6 +390,44 @@ hourStats = '';
       }
     }
   }
+ // sjekk timer i theAbsence
+ thisMonthsSickHours[0] = '';
+ thisMonthsSickHours[1] = '';
+ thisMonthsSickHours[2] = '';
+ thisMonthsSickHours[3] = '';
+ hourSickStats = '';
+ for (let i = 0; i < Object.keys(theAbsence).length; i++) {
+thisMonthsSickHoursCalc = 0;
+thisMonthsSickMinsCalc = 0;
+
+    for (let j = 1; j < Object.keys(Object.values(theAbsence)[i]).length - 11; j++) {
+      if (Object.values(theAbsence)[i]['datestamp' + j][0].substr(5,2) == ('0' + (1 + visningsMnd).toString()).slice(-2)
+      && (Object.values(theAbsence)[i]['datestamp' + j][0].substr(0,4) == visningsAr) 
+      && (Object.values(theAbsence)[i]['datestamp' + j][3] == activeUser)) {
+
+      
+        hourSickStats += `<tr class="styleTimereg2">
+                      <td class="styleTimereg2">${Object.values(theAbsence)[i]['datestamp' + j][0]}</td>
+                      <td class="styleTimereg2">${Object.values(theAbsence)[i]['datestamp' + j][1]}</td>
+                      <td class="styleTimereg2"></td>
+                      <td class="styleTimereg2"></td>
+                      <td class="styleTimereg2">${Object.values(theAbsence)[i]['datestamp' + j][2]}</td>
+                      <td class="styleTimereg2">${Object.values(theAbsence)[i]['datestamp' + j][5]}</td>
+                      <td class="styleTimereg2">${Object.values(theAbsence)[i]['datestamp' + j][8]}</td>
+                      </tr>`;
+        
+        thisMonthsSickHoursCalc += Object.values(theAbsence)[i]['datestamp' + j][6];
+        thisMonthsSickMinsCalc += Object.values(theAbsence)[i]['datestamp' + j][7];
+        if (thisMonthsSickMinsCalc > 59) {
+           thisMonthsSickHoursCalc = thisMonthsSickHoursCalc + 1;
+           thisMonthsSickMinsCalc = thisMonthsSickMinsCalc - 60;
+          }
+        }
+      }
+      thisMonthsSickHours[i] = (thisMonthsSickHoursCalc + ':' + thisMonthsSickMinsCalc).slice();
+      console.log(thisMonthsSickHours);
+    }
+ 
 }
 
 function forrigeMnd() {
@@ -423,42 +455,33 @@ hoursOverviewPageView();
 
 
 
+
 //444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
 //oversikt prosjekter
 function showStats(n) {
+
+  
+  
   projectStats = ''; 
-
-
   for (let i = 1; i < Object.keys(Object.values(theAProjects)[n]).length - 11; i++) {
     projectStats += `<tr>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][0]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][1]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][2]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][3]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][4]
-                }</td>
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][8]
-                }</td>    
-                <td class="style4-2">${
-                  Object.values(theAProjects)[n]['datestamp' + i][9]
-                }</td>    
-                 </tr>`;
-
-        
-    }
+    <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][0]}</td>
+    <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][1]}</td>
+    <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][2]}</td>
+    <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][3]}</td>
+    <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][4]}</td>
+    <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][8]}</td>    
+    <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][9]}</td>    
+    </tr>`;
     
+    
+  }
+  
   updateView();
   projectOverviewPageView();
+  let selectedRow = document.getElementById('statsRow' + n);
+  console.log(selectedRow);
+  selectedRow.classList.toggle('theChosenOne');
 
 }
 

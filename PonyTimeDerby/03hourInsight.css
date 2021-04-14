@@ -42,6 +42,14 @@
   /* background-color: red; */
 
     }
+    .styleTimereg0 {
+      width: 16vw;
+      text-align: center;
+      /* border-bottom: ; */
+      /* max-width: 9vw; */
+ 
+      /* float: left; */
+    }
     .styleTimereg1 {
       width: 9vw;
       text-align: center;
@@ -54,7 +62,13 @@
       width: 9vw;
       text-align: center;
       border-bottom: 1px solid whitesmoke;
+      /* border-collapse: collapse; */
+    }
 
+      .styleTimereg3{
+      border-bottom: 1px solid whitesmoke;
+      border-collapse: collapse;
+      }
     
       /* display: flex; */
       /* flex-wrap: wrap; */
@@ -66,7 +80,7 @@
       /* width:100vw; */
       /* overflow-y: scroll; */
     
-    }
+    
     
 
     .projectInsightSheet {

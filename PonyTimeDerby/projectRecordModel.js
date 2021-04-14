@@ -180,7 +180,8 @@ const theAbsence = {
       'totalTime',
       'participant',
     ],
-    datestamp1: ["2021-03-31", "08:00", "16:00", "Syk", 7, 30, "7:30", "Dina", ""],
+    datestamp1: ["2021-04-31", "08:00", "16:00", "Andreas", "", "Syk", 7, 30, "7:30", ""],
+    datestamp2: ["2021-04-30", "08:00", "16:00", "Andreas", "", "Syk", 7, 30, "7:30", ""],
   },
   
   projectNo2: {
@@ -205,7 +206,8 @@ const theAbsence = {
       'totalTime',
       'participant',
     ],
-    datestamp1: ["2021-03-31", "08:00", "16:00", "Fravær med lønn", 7, 30, "7:30", "Dina", ""],
+    datestamp1: ["2021-04-31", "08:00", "16:00", "Andreas", "", "Fravær med lønn", 7, 30, "7:30", ""],
+    datestamp2: ["2021-04-30", "08:00", "16:00", "Andreas", "", "Fravær med lønn", 7, 30, "7:30", ""],
   },
 
   projectNo3: {
@@ -230,7 +232,8 @@ const theAbsence = {
       'totalTime',
       'participant',
     ],
-    datestamp1: ["2021-03-31", "08:00", "16:00", "Fravær uten lønn", 7, 30, "7:30", "Dina", ""],
+    datestamp1: ["2021-04-31", "08:00", "16:00", "Andreas", "", "Fravær uten lønn", 7, 30, "7:30", ""],
+    datestamp2: ["2021-04-30", "08:00", "16:00", "Andreas", "", "Fravær uten lønn", 7, 30, "7:30", ""],
   },
 
   projectNo4: {
@@ -255,7 +258,8 @@ const theAbsence = {
       'totalTime',
       'participant',
     ],
-    datestamp1: ["2021-03-31", "08:00", "16:00", "Ferie", 7, 30, "7:30", "Dina", ""],
+    datestamp1: ["2021-04-31", "08:00", "16:00", "Andreas", "", "Ferie", 7, 30, "7:30", ""],
+    datestamp2: ["2021-04-30", "08:00", "16:00", "Andreas", "", "Ferie", 7, 30, "7:30", ""],
   },
 }
 

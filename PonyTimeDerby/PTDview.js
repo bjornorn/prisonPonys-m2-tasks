@@ -10,7 +10,7 @@ function updateView() {
     // html += `<div class='navButtons'>${i}</div>`;
     html += `<button class='navButtons' type="button" onclick="${model.navView[i]}()">${model.navButtons[i]}</button>`;
   }
-  html += `<div class="userInfo"></br>Logget inn som:<br><b>${activeUser}</b><br><button>Logg Ut</button></div></div>`;
+  html += `<div class="userInfo"></br>Logget inn som:<br></br>${activeUser}<br><br><button>Logg Ut</button></div></div>`;
   document.getElementById('app').innerHTML = html;
 }
 
@@ -26,7 +26,6 @@ function hoursRegisterSheetView() {
     if (workOrSick == 'work') {workRegister()};
     if (workOrSick == 'sick') {sickRegister()};
     
-    console.log(workOrSick)
 
 
   // TEGNE OPP "TIMER I DAG FELT"
@@ -89,9 +88,22 @@ function hoursOverviewPageView() {
   html += `</tr></table>`;
 
   html += `<div class="infoPlace0"><table>
-          <tr><td>Antall timer: </td></tr>
-          <tr><td>Jobbet: ${thisMonthsHours}</td> <td>Syk:</td> <td>Fravær med lønn:</td> <td>Fravær uten lønn:</td> <td>Ferie:</td> <td>Timebank:</td></tr>
-          </table></div>`;
+          <tr>
+              <td class="styleTimereg0">Antall timer: </td>
+          </tr>
+          <tr>
+              <td class="styleTimereg0">Jobbet: ${thisMonthsHours}</td> 
+              <td class="styleTimereg0">Syk: ${thisMonthsSickHours[0]}</td>
+          </tr>
+          <tr>     
+              <td class="styleTimereg0">Fravær med lønn: ${thisMonthsSickHours[1]}</td> 
+              <td class="styleTimereg0">Fravær uten lønn: ${thisMonthsSickHours[2]}</td> 
+          </tr>
+          <tr>
+              <td class="styleTimereg0">Ferie: ${thisMonthsSickHours[3]}</td> 
+              <td class="styleTimereg0">Timebank:</td>
+          </tr>
+              </table></div>`;
 
   html += `<div class="infoPlace1">`;
   html += `<table>`;
@@ -108,7 +120,7 @@ function hoursOverviewPageView() {
     `;
   
   html += `</table>`;
-  html += `</div><div class="infoPlace2"><table>${hourStats}</table>`;
+  html += `</div><div class="infoPlace2"><table class="styleTimereg3">${hourStats}${hourSickStats}</table>`;
   
   html += ` </div>`;
 
@@ -122,36 +134,26 @@ function projectOverviewPageView() {
   }
   html += `<div class="infoField4-1"><table class="infoContent4-1"><tr>`;
 
-  for (
-    let i = 0;
-    i < Object.values(model.projectActiveRegister)[0].length - 2;
-    i++
-  ) {
-    html += `<td class="style4-2">${
-      Object.values(model.projectActiveRegister)[0][i]
-    }</td>`;
+  for (let i = 0; i < Object.values(model.projectActiveRegister)[0].length - 2; i++) {
+    html += `<td class="style4-1">${Object.values(model.projectActiveRegister)[0][i]}
+            </td>`;
   }
 
   html += `</tr>`;
   // n = 0;
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-    html += `<tr>
-                  <td class="style4-2">${
-                    Object.values(theAProjects)[i].dateCreated
-                  }</td>
-                  <td class="style4-2" onclick="showStats(${i})">${
-      Object.values(theAProjects)[i].projectName
-    }</td>
-                  <td class="style4-2" onclick="alert('kake')">${
-                    Object.values(theAProjects)[i].budgetHours
-                  }</td>
-                  <td class="style4-2">${
-                    Object.values(theAProjects)[i].sumTimeSpent
-                  }</td>
-                  <td class="style4-2">${
-                    Object.values(theAProjects)[i].setDeadline
-                  }</td>             
-                 </tr>`;
+    html += `<tr id="statsRow${i}">
+                  <td class="style4-2">${Object.values(theAProjects)[i].dateCreated}
+                  </td>
+                  <td class="style4-2" onclick="showStats(${i})">${Object.values(theAProjects)[i].projectName}
+                  </td>
+                  <td class="style4-2" onclick="alert('kake')">${Object.values(theAProjects)[i].budgetHours}
+                  </td>
+                  <td class="style4-2">${Object.values(theAProjects)[i].sumTimeSpent}
+                  </td>
+                  <td class="style4-2">${Object.values(theAProjects)[i].setDeadline}
+                  </td>             
+              </tr>`;
   }
 
   html += `</table></div><div class="infoField4-2"><table class="infoContent4-1"><tr>`;

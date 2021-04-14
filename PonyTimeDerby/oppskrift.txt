@@ -11,11 +11,13 @@ FERDIG: Lage timeregistrering side som ser akseptabel ut
 * Lage "OVERSIKT TIMER" view
 * Lage funksjon for "registrer timer"
 * Lage "PROSJEKT REGISTERING" view
+* Lage "OVERSIKT PROSJEKTER" view - vise hvilket prosjekt som er framme
+* kontrollere alle funksjoner laget til nå - OK 14.04.20
 
 AKTIVE OPPGAVER:
-* Lage "OVERSIKT PROSJEKTER" view - vise hvilket prosjekt som er framme
-* Style oversikt timer
-* kontrollere alle funksjoner laget til nå
+* Funksjon: Registrere fravær - gjøre synlig på "timer i dag" og "oversikt timer" 
+* Finpuss av CSS
+* Forbedre "OVERSIKT PROSJEKTER" view, oppdatere view når man går inn på siden på nytt
 
 FREMTIDIGE OPPGAVER
 * Forbedre funksjon for "registrer timer"
@@ -25,10 +27,6 @@ KANSKJE EN DAG I FRAMTIDA:
 * vurdere om pause skal defineres hver gang
 
 
-    <td>${Object.values(model.projectActiveRegister)[i][0]}</td>
-                 <td>${Object.values(model.projectActiveRegister)[i][1]}</td>
-                 <td>${Object.values(model.projectActiveRegister)[i][2]}</td>
-                 <td>${Object.values(model.projectActiveRegister)[i][3]}</td>
-                 <td>${Object.values(model.projectActiveRegister)[i][4]}</td>)
+ 
 
                  
