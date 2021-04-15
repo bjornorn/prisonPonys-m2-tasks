@@ -10,6 +10,7 @@
   padding-left: 3vw;
 }
 
+
 .hoursRegisterSheetContent0 {
   position: relative;
   top: 0vh;
@@ -48,6 +49,8 @@
 }
 
 /* table, */
+/* tr{} */
+  
 th,
 td {
   border-collapse: collapse;

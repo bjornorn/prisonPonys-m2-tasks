@@ -138,7 +138,7 @@ function projectOverviewPageView() {
     html += `<td class="style4-1">${Object.values(model.projectActiveRegister)[0][i]}
             </td>`;
   }
-
+// legger til style tag for og se om det gjør en endring //
   html += `</tr>`;
   // n = 0;
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
@@ -156,30 +156,16 @@ function projectOverviewPageView() {
               </tr>`;
   }
 
-  html += `</table></div><div class="infoField4-2"><table class="infoContent4-1"><tr>`;
+  html += `</table><div id="whatProjectsButton">Bytt til <br>ferdige <br>prosjekter</div></div><div class="infoField4-2"><table class="infoContent4-2"><tr>`;
 
   html += `
-  <td class="style4-2">${
-    Object.values(model.registerData.datestampNames)[0]
-  }</td>
-  <td class="style4-2">${
-    Object.values(model.registerData.datestampNames)[1]
-  }</td>
-  <td class="style4-2">${
-    Object.values(model.registerData.datestampNames)[2]
-  }</td>
-  <td class="style4-2">${
-    Object.values(model.registerData.datestampNames)[3]
-  }</td>
-  <td class="style4-2">${
-    Object.values(model.registerData.datestampNames)[4]
-  }</td>
-  <td class="style4-2">${
-    Object.values(model.registerData.datestampNames)[9]
-  }</td>
-  <td class="style4-2">${
-    Object.values(model.registerData.datestampNames)[10]
-  }</td>`;
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[0]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[1]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[2]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[3]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[4]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[9]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[10]}</td>`;
   
   html += `</tr></table></div>`;
   html += `<div class="infoField4-3"><table class="infoContent4-2">${projectStats}</table></div>`;

@@ -1,7 +1,10 @@
 .theChosenOne {
   background-color: #33393d;
-  color: white;
+  font-weight: bold;
+  border-top:solid 1px #99aab5 ;
+ border-bottom:solid 1px #99aab5;
 }
+
     
 .infoField4-1 {
     border-radius: 25px;
@@ -32,7 +35,7 @@
     background-color: rgb(61, 66, 71);
     position: relative;
     left: 0vw;
-    top: 35vh;
+    top: 37vh;
     width: 79vw;
     height: 55vh;
     color: #99aab5;
@@ -43,8 +46,9 @@
   .infoContent4-1 {
     position: relative;
     /* top: 1vh; */
-    left: 1vw;
-    /* width: 40vw;   */
+    left: -10vw;
+    /* width: min-content;   */
+    display: inline-block;
     font-size: 1.4vw;
     border-collapse: collapse;
     /* min-width: 50%; */
@@ -72,13 +76,14 @@
   width: 30px;
 }
 .style4-1 {
-  width: 15vw;
+  min-width: 10vw;
+  max-width: 15vw;
   text-align: center;
   /* float: left;
   clear: left; */
 }
 .style4-2 {
-  min-width: 8vw;
+  min-width: 6vw;
   text-align: center;
   /* border: 1px solid white; */
   }
@@ -88,7 +93,21 @@
   clear: left;
 }
 
-
+#whatProjectsButton {
+  background-color: #99aab5;
+  color: #33393d;
+  width: 12vw;
+  height: 10vh;
+  position: relative;
+  left: 60vw;
+  top: 3vh;
+  float: left;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1vw;
+  padding-top: 0.5vw;
+ 
+}
     
 
   

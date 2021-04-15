@@ -482,7 +482,7 @@ function showStats(n) {
   let selectedRow = document.getElementById('statsRow' + n);
   console.log(selectedRow);
   selectedRow.classList.toggle('theChosenOne');
-
+  // document.getElementsByClassName('theChosenOne').style = color 'red';
 }
 
 function showProjectTotalHrs(n) {

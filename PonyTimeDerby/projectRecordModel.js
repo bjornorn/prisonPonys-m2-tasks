@@ -263,4 +263,35 @@ const theAbsence = {
   },
 }
 
+  const theFProjects = {
+    projectNo1: {
+      projectId: '',
+      projectName: 'General Hårslepp',
+      budgetHours: '50',
+      setDeadline: '2020-01-02',
+      dateCreated: '2021-01-02',
+      dateFinished: '',
+      sumTimeSpent: 0,
+      sumTimeSpentToday: [0, 0],
+      projectLeader: '',
+      activeParticipants: [],
+      historicParticipants: [],
+      datestampInfo: [
+        'dateStamp',
+        'startTime',
+        'pauseStart',
+        'pauseStop',
+        'stoptime',
+        'projectName',
+        'pauseTrueFalse',
+        'sumHours',
+        'sumMinutes',
+        'totalTime',
+        'participant',
+      ],
+      datestamp1: ["2021-03-31", "08:00", "11:30", "12:00", "16:00", "General Hårslepp", 7, 30, "7:30", "Dina", ""],
+    },
+  }
+
+
 let recordCount = Object.keys(theAProjects).length;
