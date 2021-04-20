@@ -20,9 +20,13 @@ function projectOverviewView() {
 }
 //11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 // REGISTER TIME FUNCTIONS
+// function bekreftTimer() {
+// confrim("er du sikker på at du vill legge til ?");
+// }
+
 function registerCurrentHours() {
     calculateWorkTime();
-  
+    // bekreftTimer();
   rightfulObj = model.registerData.hourActualValue[5];
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
     if (rightfulObj === Object.values(theAProjects)[i].projectName) {
