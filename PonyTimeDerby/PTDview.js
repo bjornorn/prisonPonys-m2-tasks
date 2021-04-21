@@ -8,7 +8,7 @@ function updateView() {
   html += `<div class='sidebar'>`;
   for (let i = 0; i < model.navButtons.length; i++) {
     // html += `<div class='navButtons'>${i}</div>`;
-    html += `<button class='navButtons' type="button" onclick="${model.navView[i]}()">${model.navButtons[i]}</button>`;
+    html += `<button id="navButton${i}" class='navButtons' type="button" onclick="${model.navView[i]}()">${model.navButtons[i]}</button>`;
   }
   html += `<div class="userInfo"></br>Logget inn som:<br></br>${activeUser}<br><br><button>Logg Ut</button></div></div>`;
   document.getElementById('app').innerHTML = html;
@@ -34,12 +34,9 @@ function hoursRegisterSheetView() {
   `;
   // let todaysHours = 0;
   for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-    html += `<tr><td class="style1">${
-      Object.values(theAProjects)[i].projectName
-    }</td> 
-             <td class="style2">${
-               Object.values(theAProjects)[i].sumTimeSpentToday
-             }</td></tr>`;
+    html += `<tr><td class="style1">${Object.values(theAProjects)[i].projectName}
+            </td> 
+             <td class="style2">${Object.values(theAProjects)[i].sumTimeSpentToday}</td></tr>`;
     // todaysHours += parseFloat(Object.values(theAProjects)[i].sumTimeSpentToday);
   }
 
