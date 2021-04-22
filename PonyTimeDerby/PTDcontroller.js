@@ -19,6 +19,10 @@ function projectOverviewView() {
   projectOverviewPageView();
 }
 
+function selectedNavButton(n) {
+let chosen = document.getElementById('navButton' + n);
+chosen.classList.toggle('markNavButton');
+}
 
 //11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 // REGISTER TIME FUNCTIONS
@@ -65,18 +69,10 @@ function calculateWorkTime() {
   );
   let stopTime = parseInt(model.registerData.hourActualValue[4].substr(0, 2));
   let stopMinutt = parseInt(model.registerData.hourActualValue[4].substr(3, 2));
-  let startPauseHour = parseInt(
-    model.registerData.hourActualValue[2].substr(0, 2)
-  );
-  let stopPauseHour = parseInt(
-    model.registerData.hourActualValue[3].substr(0, 2)
-  );
-  let startPauseMinutt = parseInt(
-    model.registerData.hourActualValue[2].substr(3, 2)
-  );
-  let stopPauseMinutt = parseInt(
-    model.registerData.hourActualValue[3].substr(3, 2)
-  );
+  let startPauseHour = parseInt(model.registerData.hourActualValue[2].substr(0, 2));
+  let stopPauseHour = parseInt(model.registerData.hourActualValue[3].substr(0, 2));     
+  let startPauseMinutt = parseInt(model.registerData.hourActualValue[2].substr(3, 2));
+  let stopPauseMinutt = parseInt(model.registerData.hourActualValue[3].substr(3, 2));
 
   startSum = startTime * 60 + startMinutt;
   stopSum = stopTime * 60 + stopMinutt;
@@ -101,19 +97,17 @@ function calculateWorkTime() {
   model.registerData.hourActualValue[6] = totalHour;
   model.registerData.hourActualValue[7] = totalMin;
   model.registerData.hourActualValue[8] = totalHour + ':' + totalMin;
+  
+  if ((totalPauseHour + totalPauseMin) < 1) {model.registerData.hourActualValue[10] = false;}
+  else {model.registerData.hourActualValue[10] = true;}
 
-  if (sumPauseMin < 1) {
-    model.registerData.hourActualValue[6] = false;
-  }
-
-  // console.log('timer tot ' + totalHour);
+  // console.log(model.registerData.hourActualValue[10]);
   // console.log('min tot' + totalMin);
 }
 
 function calculateAbsenceTime() {
   let startTime = parseInt(model.registerData.sickHourActualValue[1].substr(0, 2));
-  let startMinutt = parseInt(model.registerData.sickHourActualValue[1].substr(3, 2)
-  );
+  let startMinutt = parseInt(model.registerData.sickHourActualValue[1].substr(3, 2));
   let stopTime = parseInt(model.registerData.sickHourActualValue[2].substr(0, 2));
   let stopMinutt = parseInt(model.registerData.sickHourActualValue[2].substr(3, 2));
 
@@ -147,7 +141,7 @@ function calcSpentHrsToday(i) {
     if (Object.values(theAProjects)[i]['datestamp' + j][0] == iDag) {
       sumHoursSpentToday = sumHoursSpentToday + Object.values(theAProjects)[i]['datestamp' + j][6];
       sumMinutesSpentToday = sumMinutesSpentToday + Object.values(theAProjects)[i]['datestamp' + j][7];
-      // alert ('jippu');
+      console.log('jippu');
     }
     // console.log('min før' + sumMinutesSpentToday);
     // console.log('timer før' + sumHoursSpentToday)
@@ -169,19 +163,12 @@ function sickCalcSpentHrsToday(i) {
   let sumMinutesSpentToday = 0;
   // for (let i = 0; i < Object.keys(theAProjects).length; i++) {
   // console.log(Object.keys(Object.values(theAProjects)[i]).length - 12);
-  for (
-    let j = 1;
-    j < Object.keys(Object.values(theAProjects)[i]).length - 11;
-    j++
-  ) {
+  for (let j = 1; j < Object.keys(Object.values(theAProjects)[i]).length - 11; j++) {
     // console.log('what ' + Object.values(theAProjects.projectNo3)[j + 11]);
 
     if (Object.values(theAProjects)[i]['datestamp' + j][0] == iDag) {
-      sumHoursSpentToday =
-        sumHoursSpentToday + Object.values(theAProjects)[i]['datestamp' + j][6];
-      sumMinutesSpentToday =
-        sumMinutesSpentToday +
-        Object.values(theAProjects)[i]['datestamp' + j][7];
+      sumHoursSpentToday = sumHoursSpentToday + Object.values(theAProjects)[i]['datestamp' + j][6];
+      sumMinutesSpentToday = sumMinutesSpentToday + Object.values(theAProjects)[i]['datestamp' + j][7];
       // alert ('jippu');
     }
     // console.log('min før' + sumMinutesSpentToday);
@@ -216,76 +203,32 @@ function todayTotalHours() {
   // console.log(tracking.todayHoursMinutes);
 }
 
-function workRegister() {
-  model.registerData.hourActualValue = model.registerData.hourDefaultValue;
-  html += `<div class="hoursRegisterSheet">`;
-  html += `<div><h2>Ny Registrering</h2></div>`;
-  html += `<table class="hoursRegisterSheetContent">`;
-  for (let i = 0; i < model.hoursSheetForm.description.length; i++) {
-    html += `<tr><td>${
-      Object.values(model.hoursSheetForm.description)[i]
-    }:</td></tr>`;
-  }
-  html += `</table><table class="hoursRegisterSheetContent2">`;
-  for (let i = 0; i < model.hoursSheetForm.description.length - 1; i++) {
-    html += `<tr><td><input type="${model.registerData.dtProjectActiveRegister[i]}"
-              value="${model.registerData.hourDefaultValue[i]}" 
-              oninput="model.registerData.hourActualValue[${i}] = this.value"/></td></tr>`;
-  }
-  //Dropdown meny
-  html += `<tr><td><select id="psel" style="width: 200px" oninput="model.registerData.hourActualValue[${5}] = this.value">`;
-  for (let i = 0; i < Object.keys(theAProjects).length; i++) {
-    html += `<option ${i}>${
-      Object.values(theAProjects)[i].projectName
-    }</option>`;
-  }
-  // value="${Object.values(theAProjects)[i].projectName}" LA STÅ!
 
-  html += `<option selected="selected"></option></select></tr></td>`;
-  html += `</table>`;
-  html += `<button class="button" onclick="workOrSick = 'sick'; updateView(); hoursRegisterSheetView();">Trykk her for å registrere fravær</button>`;
-  html += `<button class="button" onclick="registerCurrentHours()">Registrer</button>`;
-  html += `</div>`;
+
+
+
+function pauseCheckBox() {
+
+if (model.registerData.pauseCheckBox.checked == '') {
+  model.registerData.hourActualValue[2] = '00:00';
+  model.registerData.hourActualValue[3] = '00:00';
+ model.registerData.pauseCheckBox.checked = 'checked';
+//  let pauseStart = document.getElementById('pauseInput1');
+//  pauseStart.type = 'text';
+//  pauseStart.innerHTML = 'kake';
+ hoursRegisterSheetView();
+}
+else if (model.registerData.pauseCheckBox.checked == 'checked') {
+  model.registerData.hourActualValue[2] = '11:30';
+  model.registerData.hourActualValue[3] = '12:00';
+ model.registerData.pauseCheckBox.checked = '';
+ hoursRegisterSheetView();
 }
 
-function sickRegister() {
-  model.registerData.sickHourActualValue = model.registerData.sickHourDefaultValue;
-  html += `<div class="hoursRegisterSheet">`;
-  html += `<div><h2>Ny Fravær Registering</h2></div>`;
-  html += `<table class="hoursRegisterSheetContent0">
-            <tr><td>Fravær hele dagen:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-            <td><input type="checkbox" value="false" 
-            onclick="sickCheckBox()" ${model.registerData.sickCheckBox.checked}></input></td></tr></table><table  class="hoursRegisterSheetContent1">`;
-  for (let i = 0; i < model.hoursSheetForm.sickDescription.length; i++) {
-    html += `<tr><td>${Object.values(model.hoursSheetForm.sickDescription)[i]}:</td></tr>`;
-  }
-    html += `</table><table class="hoursRegisterSheetContent2">`;
-
-  for (let i = 0; i < model.hoursSheetForm.sickDescription.length - 1; i++) {
-    html += `<tr><td><input id="sickInput${i}" type="${model.registerData.sickProjectActiveRegister[i]}"
-              value="${model.registerData.sickHourDefaultValue[i]}" 
-              oninput="model.registerData.sickHourActualValue[${i}] = this.value"/></td></tr>`;
-  }
-  //Dropdown meny
-  html += `<tr><td><select id="psel" style="width: 200px" oninput="model.registerData.sickHourActualValue[${5}] = this.value">`;
-  for (let i = 0; i < Object.keys(theAbsence).length; i++) {
-    html += `<option ${i}>${Object.values(theAbsence)[i].projectName}</option>`;
-  }
-  // value="${Object.values(theAProjects)[i].projectName}" LA STÅ!
-
-  html += `<option selected="selected"></option></select></tr></td>`;
-  html += `</table>`;
-  html += `<button class="button" onclick="workOrSick = 'work'; updateView(); hoursRegisterSheetView();">Trykk her for å registrere vanlige timer</button>`;
-  html += `<button class="button" onclick="registerCurrentHoursSick()">Registrer</button>`;
-  html += `</div>`;
-
-  
 }
-
-
 
 function sickCheckBox() {
- let checkBox = document.getElementById('sickCheck');
+//  let checkBox = document.getElementById('sickCheck');
 if (model.registerData.sickCheckBox.checked == '') {
   model.registerData.sickHourActualValue[1] = '08:00';
   model.registerData.sickHourActualValue[2] = '15:30';
@@ -429,7 +372,7 @@ thisMonthsSickMinsCalc = 0;
         }
       }
       thisMonthsSickHours[i] = (thisMonthsSickHoursCalc + ':' + thisMonthsSickMinsCalc).slice();
-      console.log(thisMonthsSickHours);
+      // console.log(thisMonthsSickHours);
     }
  
 }

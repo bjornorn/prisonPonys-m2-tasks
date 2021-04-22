@@ -65,5 +65,12 @@ body {
   left: 0vw;
 }
 
+.link {
+  cursor: pointer;
+}
+
+.markNavButton {
+  border: rgb(160, 13, 43) 0.2vw solid;
+}
 
 

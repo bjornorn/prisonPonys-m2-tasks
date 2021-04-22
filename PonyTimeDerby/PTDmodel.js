@@ -7,7 +7,7 @@ currentDate = new Date();
 dateIsNow = currentDate.toLocaleDateString();
 currentHour = currentDate.getHours();
 currentMinute = currentDate.getMinutes();
-timeIsNow = currentHour + ':' + currentMinute;
+timeIsNow = ('0' + currentHour).slice(-2) + ':' + ('0' + currentMinute).slice(-2);
 
 
 
@@ -17,7 +17,7 @@ let m = ('0' + (currentDate.getMonth() + 1)).slice(-2);
 let y = currentDate.getFullYear();
 let iDag = y + '-' + m + '-' + d;
 
-let kalenderMnd = ['Januar','Februar','Mars','April','Mai','juni','juli','August','September','Oktober','November','Desember'];
+let kalenderMnd = ['Januar','Februar','Mars','April','Mai','Juni','Juli','August','September','Oktober','November','Desember'];
 let denneMnd = iDag.substr(5, 2) -1;
 let visningsMnd;
 let visningsAr;
@@ -26,7 +26,7 @@ let projectStats = '';
 let hourStats = '';
 let thisMonthsHours = '';
 let thisMonthsSickHours = ['', '', '', ''];
-let workOrSick = 'sick';
+let workOrSick = 'work';
 
 
 let activeUser = 'Andreas';
@@ -60,7 +60,7 @@ projectInfoRegister: {
  },
 
 hoursSheetForm: {
-     description: ['Dato', 'Tid Startet', 'Pausen Startet', 'Pausen Stoppet', 'Tid Stoppet', 'Navn på prosjekt'],
+     description: ['Ingen Pause','Dato', 'Tid Startet', 'Pausen Startet', 'Pausen Stoppet', 'Tid Stoppet', 'Navn på prosjekt'],
      sickDescription: ['Dato', 'Tid Startet', 'Tid Stoppet', 'Årsak til fravær'],
  },
 // PROSJEKT OBJEKTER
@@ -91,11 +91,11 @@ registerData: {
         'Pause Stoppet', 
         'Ferdig', 
         'Prosjekt Navn',
-        'Var det pause',
         'Sum Timer', 
         'Sum Minutter', 
         'Tid Brukt',
-        'Deltager'],
+        'Deltager',
+        'Var det pause'],
     datestampInfo: [
         'dateStamp', 
         'startTime', 
@@ -103,11 +103,11 @@ registerData: {
         'pauseStop', 
         'stoptime', 
         'projectName',
-        'pauseTrueFalse',
         'sumHours', 
         'sumMinutes', 
         'totalTime',
-        'participant'],
+        'participant',
+        'pauseTrueFalse'],
     dtProjectActiveRegister: ['Date', 'time', 'time', 'time', 'time', 'select'],
     hourDefaultValue: [iDag, '08:00', '11:30', '12:00', '16:00', '', true, '', '', activeUser, ''],
     hourActualValue: ['', '', '', '', '', '', '', '', '', '', ''],
@@ -116,6 +116,10 @@ registerData: {
     sickHourDefaultValue: [iDag, '08:00', '16:00', activeUser, '', '', '', ''],
     sickHourActualValue: ['', '', '', '', '', '', '', '', ''],
     
+    pauseCheckBox: {
+        checked: '',
+        
+    },
     sickCheckBox: {
         checked: '',
         
