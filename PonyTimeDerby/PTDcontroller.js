@@ -23,7 +23,7 @@ function selectedNavButton(n) {
 if (n != null) {  
 let chosen = document.getElementById('navButton' + n);
 model.selectedPage = chosen.id.slice(-1);
-console.log(model.selectedPage);
+// console.log(model.selectedPage);
 chosen.classList.add('markNavButton');
 }
 }

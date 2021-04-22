@@ -12,7 +12,10 @@ function updateView() {
     html += `<button id="navButton${i}" class='navButtons link' type="button" onclick="${model.navView[i]}(); selectedNavButton(${i})">${model.navButtons[i]}</button>`;
   }
   html += `<div class="userInfo"></br>Logget inn som:<br></br>${activeUser}<br><br><button class="link">Logg Ut</button></div></div>`;
-  selectedNavButton(model.selectedPage);
+  
+  // selectedNavButton(model.selectedPage);
+  // console.log(model.selectedPage);
+  
   document.getElementById('app').innerHTML = html;
 }
 
