@@ -20,10 +20,13 @@ function projectOverviewView() {
 }
 
 function selectedNavButton(n) {
+if (n != null) {  
 let chosen = document.getElementById('navButton' + n);
-chosen.classList.toggle('markNavButton');
+model.selectedPage = chosen.id.slice(-1);
+console.log(model.selectedPage);
+chosen.classList.add('markNavButton');
 }
-
+}
 //11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 // REGISTER TIME FUNCTIONS
 

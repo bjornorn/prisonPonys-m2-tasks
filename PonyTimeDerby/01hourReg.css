@@ -11,23 +11,28 @@
 }
 
 
-.hoursRegisterSheetContent0 {
+/* .hoursRegisterSheetContent0 {
   position: relative;
   top: 0vh;
   left: 0vw;
   width: 0vw;
   height: 0vh;      
   background-color: red;
-}
+} */
 
-.hoursRegisterSheetContent1 {
+.hoursRegisterSheetContentSick {
   position: relative;
   top: 0vh;
   left: 0vw;
   float: left;
-  width: 25vw;
+  width: 30vw;
   height: 20vh;     
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
+}
+
+.hoursRegisterSheetContentSick td {
+width: 18vw;
+height: 5vh;
 }
 
 .hoursRegisterSheetContentWork {
@@ -37,7 +42,7 @@
   float: left;
   width: 0vw;
   height: 20vh;  
-  background-color: blue; 
+  /* background-color: blue;  */
 
 }
 
@@ -58,7 +63,7 @@ height: 5vh;
 
 .button2 {
   position:absolute;
-  top: 3vh;  
+  top: 12vh;  
   right: 1vw;
   border-radius: 25px;
   background-color: rgb(61, 61, 61);
@@ -68,8 +73,7 @@ height: 5vh;
 }
 
 /* table, */
-/* tr{} */
-  
+/* tr */  
 th,
 td {
   border-collapse: collapse;

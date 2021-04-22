@@ -26,26 +26,16 @@ let projectStats = '';
 let hourStats = '';
 let thisMonthsHours = '';
 let thisMonthsSickHours = ['', '', '', ''];
-let workOrSick = 'work';
+let workOrSick = 'sick';
 
 
 let activeUser = 'Andreas';
 
 const model = {
-
  
- navButtons: ['Time Registrering', 'Prosjekt Registrering', 'Oversikt Timer', 'Oversikt Prosjekter']
- ,
-
-
-navView: ['hoursRegisterView', 'projectRegisterView', 'hoursOverviewView', 'projectOverviewView']
-,
-
-
-// TIME OBJEKTER
-
-
-
+navButtons: ['Time Registrering', 'Prosjekt Registrering', 'Oversikt Timer', 'Oversikt Prosjekter'],
+navView: ['hoursRegisterView', 'projectRegisterView', 'hoursOverviewView', 'projectOverviewView'],
+selectedPage: null,
 
 projectInfoRegister: {
     projectId: 'Lag en Prosjekt ID',
@@ -61,7 +51,7 @@ projectInfoRegister: {
 
 hoursSheetForm: {
      description: ['Ingen Pause','Dato', 'Tid Startet', 'Pausen Startet', 'Pausen Stoppet', 'Tid Stoppet', 'Navn på prosjekt'],
-     sickDescription: ['Dato', 'Tid Startet', 'Tid Stoppet', 'Årsak til fravær'],
+     sickDescription: ['Dato', 'Tid Startet', 'Tid Stoppet'],
  },
 // PROSJEKT OBJEKTER
 
@@ -139,26 +129,6 @@ users: {
     activeInProject: false,
 },
 
-
-
-userTypes : {
-
-    "Admin":{
-    userID: '',
-    },
-
-    "Team-leder":{
-    userID: '', 
-        
-    },
-
-    "Bruker":{
-    userID:'',
-        
-    },
-
-
-}
 };
 let activeProjectsList = '';
 

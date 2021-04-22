@@ -3,6 +3,7 @@ let html = '';
 //***MAIN VIEW***00000
 function updateView() {
   todayTotalHours(); //tell opp dagen registrerte timer
+
   html = '';
   // html += `<div class='header'>${navButtons[0]}</div>`;
   html += `<div class='sidebar'>`;
@@ -11,6 +12,7 @@ function updateView() {
     html += `<button id="navButton${i}" class='navButtons link' type="button" onclick="${model.navView[i]}(); selectedNavButton(${i})">${model.navButtons[i]}</button>`;
   }
   html += `<div class="userInfo"></br>Logget inn som:<br></br>${activeUser}<br><br><button class="link">Logg Ut</button></div></div>`;
+  selectedNavButton(model.selectedPage);
   document.getElementById('app').innerHTML = html;
 }
 
@@ -56,7 +58,7 @@ function hoursRegisterSheetView() {
 function workRegister() {
   model.registerData.hourActualValue = model.registerData.hourDefaultValue;
   html += `<div class="hoursRegisterSheet">`;
-  html += `<div><h2>Ny Registrering</h2></div>`;
+  html += `<div><h2>Ny Registrering - Arbeid</h2></div>`;
   html += `<table class="hoursRegisterSheetContentWork">`;
   for (let i = 0; i < model.hoursSheetForm.description.length; i++) {
     html += `<tr><td>${
@@ -91,25 +93,28 @@ function workRegister() {
 function sickRegister() {
   model.registerData.sickHourActualValue = model.registerData.sickHourDefaultValue;
   html += `<div class="hoursRegisterSheet">`;
-  html += `<div><h2>Ny Fravær Registering</h2></div>`;
-  html += `<table class="hoursRegisterSheetContent0">
+  html += `<div><h2>Ny Registrering - Fravær</h2></div>`;
+  html += `<table class="hoursRegisterSheetContentSick">
             <tr><td>Fravær hele dagen:</td>
             <td><input type="checkbox" value="false" 
             onclick="sickCheckBox()" ${model.registerData.sickCheckBox.checked}></input>
             </td>
-            </tr></table><table class="hoursRegisterSheetContent1">`;
+            </tr>`;
   for (let i = 0; i < model.hoursSheetForm.sickDescription.length; i++) {
-    html += `<tr><td>${Object.values(model.hoursSheetForm.sickDescription)[i]}:</td></tr>`;
+    html += `<tr>
+                  <td>
+                    ${Object.values(model.hoursSheetForm.sickDescription)[i]}:
+                  </td>
+           <td>
+                    <input id="sickInput${i}" type="${model.registerData.sickProjectActiveRegister[i]}"
+                    value="${model.registerData.sickHourDefaultValue[i]}" 
+                    oninput="model.registerData.sickHourActualValue[${i}] = this.value"/>
+                  </td>
+                </tr>`;
   }
-    html += `</table><table class="hoursRegisterSheetContentWork">`;
 
-  for (let i = 0; i < model.hoursSheetForm.sickDescription.length - 1; i++) {
-    html += `<tr><td><input id="sickInput${i}" type="${model.registerData.sickProjectActiveRegister[i]}"
-              value="${model.registerData.sickHourDefaultValue[i]}" 
-              oninput="model.registerData.sickHourActualValue[${i}] = this.value"/></td></tr>`;
-  }
   //Dropdown meny
-  html += `<tr><td><select id="psel" style="width: 200px" oninput="model.registerData.sickHourActualValue[${5}] = this.value">`;
+  html += `<tr><td>Årsak til fravær</td><td><select id="psel" style="width: 200px" oninput="model.registerData.sickHourActualValue[${5}] = this.value">`;
   for (let i = 0; i < Object.keys(theAbsence).length; i++) {
     html += `<option ${i}>${Object.values(theAbsence)[i].projectName}</option>`;
   }
