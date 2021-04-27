@@ -3,6 +3,8 @@ let html = '';
 //***MAIN VIEW***00000
 function updateView() {
   todayTotalHours(); //tell opp dagen registrerte timer
+  
+  // selectedNavButton(model.selectedPage);
 
   html = '';
   // html += `<div class='header'>${navButtons[0]}</div>`;
@@ -15,9 +17,9 @@ function updateView() {
   
   // selectedNavButton(model.selectedPage);
   // console.log(model.selectedPage);
-  
+
   document.getElementById('app').innerHTML = html;
-}
+  }
 
 // ***TIME REGISTRERING VIEW***11111
 // TEGNE OPP NY REGISTRERING FELT
@@ -55,7 +57,10 @@ function hoursRegisterSheetView() {
   html += `<div>I dag er det ${dateIsNow}</div><br>`;
   html += `<div>Klokken er: ${timeIsNow}</div>`;
   html += `</div>`;
+
   document.getElementById('app').innerHTML = html;
+  let chosen = document.getElementById('navButton0');
+  chosen.classList.toggle('markNavButton');
 }
 
 function workRegister() {
@@ -139,13 +144,13 @@ function projectRegisterPageView() {
   
   html += `<div class="projectRegisterSheet"><table class="projectRegisterSheetContent">`;
   for (let i = 0; i < Object.keys(model.projectInfoRegister).length - 5; i++) {
-    html += `<tr class="projectRegisterSheetContent"><td>${Object.values(model.projectInfoRegister)[i]}</td>
+    html += `<tr><td>${Object.values(model.projectInfoRegister)[i]}</td>
         <td><input type="${model.registerData.dataType[i]}" oninput="model.registerData.actualValue[${i}] = this.value"/></td>
         </tr>`;
   }
   html += `<tr><td id="deltagere">Hvem skal delta på prosjektet?</td><td>`;
   for (let i = 0; i < Object.keys(userdata).length; i++) {
-    html += `<p id="user${i}" class="allUsers link" onclick="addUser2Project(${i})">${Object.values(userdata)[i].username}</p>`
+    html += `<pre id="user${i}" class="allUsers link" onclick="addUser2Project(${i})">${Object.values(userdata)[i].username}</pre>`
   }
   html += `</td></tr></table>`;
   html += `<button class="clickButton link" onclick="registerActiveProject()">Registrer nytt prosjekt</button>`;
@@ -163,21 +168,21 @@ function hoursOverviewPageView() {
   html += `<td class="link" onclick="nesteMnd()">Neste måned</td>`;
   html += `</tr></table>`;
 
-  html += `<div class="infoPlace0"><table>
+  html += `<div class="infoPlace0"><table class="styleTimereg0">
           <tr>
-              <td class="styleTimereg0">Antall timer: </td>
+              <td>Antall timer: </td>
           </tr>
           <tr>
-              <td class="styleTimereg0">Jobbet: ${thisMonthsHours}</td> 
-              <td class="styleTimereg0">Syk: ${thisMonthsSickHours[0]}</td>
+              <td>Jobbet: <b>${thisMonthsHours}</b></td>               
+              <td>Fravær med lønn: <b>${thisMonthsSickHours[1]}</b></td> 
+              <td>Syk: <b>${thisMonthsSickHours[0]}</b></td>
           </tr>
           <tr>     
-              <td class="styleTimereg0">Fravær med lønn: ${thisMonthsSickHours[1]}</td> 
-              <td class="styleTimereg0">Fravær uten lønn: ${thisMonthsSickHours[2]}</td> 
+          <td>Ferie: <b>${thisMonthsSickHours[3]}</b></td> 
+          <td>Fravær uten lønn: <b>${thisMonthsSickHours[2]}</b></td> 
+          <td>Timebank: <b>0:0</b></td>
           </tr>
           <tr>
-              <td class="styleTimereg0">Ferie: ${thisMonthsSickHours[3]}</td> 
-              <td class="styleTimereg0">Timebank:</td>
           </tr>
               </table></div>`;
 
@@ -192,7 +197,7 @@ function hoursOverviewPageView() {
     <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[3]}</td>
     <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[4]}</td>
     <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[5]}</td>
-    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[9]}</td>
+    <td class="styleTimereg1">${Object.values(model.registerData.datestampNames)[6]}</td>
     `;
   
   html += `</table>`;
@@ -232,7 +237,7 @@ function projectOverviewPageView() {
               </tr>`;
   }
 
-  html += `</table><div id="whatProjectsButton" class="link">Bytt til <br>ferdige <br>prosjekter</div></div><div class="infoField4-2"><table class="infoContent4-2"><tr>`;
+  html += `</table><div id="whatProjectsButton" class="link">Bytt til <br>ferdige <br>prosjekter</div></div><div class="infoField4-2"><table class="infoContent4-2 style4-2"><tr>`;
 
   html += `
   <td class="style4-2">${Object.values(model.registerData.datestampNames)[0]}</td>
@@ -240,11 +245,11 @@ function projectOverviewPageView() {
   <td class="style4-2">${Object.values(model.registerData.datestampNames)[2]}</td>
   <td class="style4-2">${Object.values(model.registerData.datestampNames)[3]}</td>
   <td class="style4-2">${Object.values(model.registerData.datestampNames)[4]}</td>
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[9]}</td>
-  <td class="style4-2">${Object.values(model.registerData.datestampNames)[10]}</td>`;
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[8]}</td>
+  <td class="style4-2">${Object.values(model.registerData.datestampNames)[9]}</td>`;
   
   html += `</tr></table></div>`;
-  html += `<div class="infoField4-3"><table class="infoContent4-2">${projectStats}</table></div>`;
+  html += `<div class="infoField4-3"><table class="infoContent4-2 style4-2">${projectStats}</table></div>`;
 
   document.getElementById('app').innerHTML = html;
 }

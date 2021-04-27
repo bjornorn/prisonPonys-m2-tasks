@@ -20,12 +20,13 @@ function projectOverviewView() {
 }
 
 function selectedNavButton(n) {
-if (n != null) {  
-let chosen = document.getElementById('navButton' + n);
-model.selectedPage = chosen.id.slice(-1);
-// console.log(model.selectedPage);
-chosen.classList.add('markNavButton');
-}
+  if (n != undefined) {  
+    let chosen = document.getElementById('navButton' + n);
+    // model.selectedPage = chosen.id.slice(-1);
+    chosen.classList.add('markNavButton');
+    model.selectedPage = n;
+    console.log('ye' + model.selectedPage);
+  }
 }
 //11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 // REGISTER TIME FUNCTIONS
@@ -42,7 +43,9 @@ function registerCurrentHours() {
       keyCount = Object.keys(rightfulObj).length - 11;  
       datestamp = ('datestamp' + keyCount).toString();
       rightfulObj[datestamp] = model.registerData.hourActualValue.slice();            
+      alert('Dine timer er registrert');
     }  
+
   }  
   updateView();
   hoursRegisterSheetView();
@@ -60,6 +63,7 @@ function registerCurrentHoursSick() {
       keyCount = Object.keys(rightfulObj).length - 11;  
       datestamp = ('datestamp' + keyCount).toString();
       rightfulObj[datestamp] = model.registerData.sickHourActualValue.slice();            
+      alert('Ditt fravær er registrert');
     }  
   }  
   updateView();
@@ -253,6 +257,14 @@ else if (model.registerData.sickCheckBox.checked == 'checked') {
 // REGISTER PROJECT FUNCTIONS
 
 function registerActiveProject() {
+  if (
+    model.registerData.actualValue[0] != '' &&
+    model.registerData.actualValue[1] != '' &&
+    model.registerData.actualValue[2] != '' &&
+    model.registerData.actualValue[3] != '' &&
+    model.registerData.actualValue[4] != '' &&
+    model.registerData.actualValue[5] != ''    
+    ) {
   recordCount++;
   navn = 'projectNo' + recordCount.toString();
 
@@ -280,6 +292,8 @@ function registerActiveProject() {
     'totalTime',
     'participant',
   ];
+  alert('Ditt nye prosjekt er registrert')
+}
 }
 
 function addUser2Project(n) {
@@ -389,17 +403,21 @@ function forrigeMnd() {
 // console.log(('0' + (1 + visningsMnd).toString()).slice(-2))  
 updateView();
 hoursOverviewPageView();
+let chosen = document.getElementById('navButton2')
+chosen.classList.toggle('markNavButton');
 }
 
 function nesteMnd() {
   visningsMnd++
   if (visningsMnd > 11) {
       visningsMnd = visningsMnd -12;
-      visningsAr = visningsAr +1;
+      visningsAr++;
   }
-// console.log(('0' + (1 + visningsMnd).toString()).slice(-2))  
-updateView();
-hoursOverviewPageView();
+  // console.log(('0' + (1 + visningsMnd).toString()).slice(-2))  
+  updateView();
+  hoursOverviewPageView();
+  let chosen = document.getElementById('navButton2')
+  chosen.classList.toggle('markNavButton');
 }
 
 
@@ -410,11 +428,11 @@ hoursOverviewPageView();
 //oversikt prosjekter
 function showStats(n) {
 
-  
+  selectedNavButton(1);
   
   projectStats = ''; 
   for (let i = 1; i < Object.keys(Object.values(theAProjects)[n]).length - 11; i++) {
-    projectStats += `<tr>
+    projectStats += `<tr class="style4-2">
     <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][0]}</td>
     <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][1]}</td>
     <td class="style4-2">${Object.values(theAProjects)[n]['datestamp' + i][2]}</td>
@@ -430,8 +448,10 @@ function showStats(n) {
   updateView();
   projectOverviewPageView();
   let selectedRow = document.getElementById('statsRow' + n);
-  console.log(selectedRow);
+  // console.log(selectedRow);
   selectedRow.classList.toggle('theChosenOne');
+  let chosen = document.getElementById('navButton3')
+  chosen.classList.toggle('markNavButton');
   // document.getElementsByClassName('theChosenOne').style = color 'red';
 }
 

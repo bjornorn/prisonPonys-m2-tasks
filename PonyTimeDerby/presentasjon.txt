@@ -1,0 +1,54 @@
+Intro for de som skal fremføre.
+Fortell hvem du/dere er , hvilken modul og hva prosjektet går ut på og i hvilket språk - evt hvor lenge har du/dere jobbet med koding/hvor mye erfaring.
+
+Hva kan dere snakke om underveis
+Selve prosessen av prosjektet, har det vært en form for planlegging?
+Hva har du/dere støtt på av problemer? 
+Hva kan du/dere ta med dere videre? 
+Og viktigst av alt, har det vært gøy? 
+Avslutte med å takke for dere. 
+
+1 Hvem er vi:
+Team Prison Ponys - akkurat ferdig med M2.
+Teamet består av Dina, Andreas og Bjørn
+
+2 Projekt:
+Lage et program som kan registrere timer knyttet til prosjekter.
+Skrevet i Javascript
+Hele teamet kunne lite om koding før vi begynte på get i januar.
+
+3. Planlegging og gjennomføring av prosjekt.
+Møter med vår kunde Christoffer hver 14. dag. Mer ved behov.
+
+Kartla vi kunde sin bestilling
+Lagde skriftlig beskrivelse - punkter med ting som skulle være med.
+Lagde illustrasjoner.
+Startet å kode.
+Drøftet i team og med kunde gjennom hele prosessen.
+
+4. DEMO AV PROSJEKT:
+Logget inn som Andreas
+* OVERSIKT PROSJEKTER: 3 reg.
+* PROSJEKT REGISTRERING: registrere prosjekt
+OVERSIKT PROSJEKTER: vis nytt prosjekt
+* OVERSIKT TIMER: ingen timer her...
+* TIMER REGISTRERING: registrer timer og sykefravær
+OVERSIKT TIMER: nye timer på plass
+OVERSIKT PROSJEKTER: nye timer på plass
+
+5. Problmer underveis:
+Ting tar lengre tid enn man tror
+Vi skriver kode i god tro. Koden oppfører seg ikke som man tror. Vi feilsøker og lærer!
+
+6. Hva vi tar med videre:
+Kriplende hodepine 
+Vi har lært å bruke objekter
+Vi har blitt litt klokere på MVC
+Vi har fått mer erfaring med Javascript og lært av det.
+
+7. Har det vært gøy:
+Ja, vi har hatt det gøy!
+
+8. Er det noen spørsmål?
+
+9. Takk for oss!

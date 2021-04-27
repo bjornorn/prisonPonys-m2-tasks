@@ -62,9 +62,11 @@
     width: 40vw;
     /* height: 30vh;    */
     /* overflow-y: hidden; */
-  
+    
     font-size: 1.4vw;
     /* min-width: 50%; */
+
+   
   }
 
   .th4,
@@ -84,9 +86,12 @@
   clear: left; */
 }
 .style4-2 {
-  min-width: 6vw;
+  min-width: 10vw;
   text-align: center;
-  /* border: 1px solid white; */
+  border-bottom: 1px whitesmoke solid;
+  border-collapse: collapse;
+  
+
   }
 
 .style4-3 {

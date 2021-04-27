@@ -1,52 +1,75 @@
 .projectRegisterSheet {
     border-radius: 25px;
     background-color: rgb(61, 66, 71);  
-    position: fixed;
-    left: 30vw;
-    top: 15vh;
-    width: 55vw;
+    position: absolute;
+    left: 20vw;
+    top: 10vh;
+    width: 65vw;
     height: 45vh;
     color: #99aab5;
-    padding-left: 3vw;
+    /* padding-left: 3vw; */
   }
   
   .projectRegisterSheetContent {
     position: relative;
-    top: 7vh;
-    left: 7vw;
-    width: 40vw;  
+    top: 5vh;
+    left: 5vw;
+    width: 55vw;  
+    height: 30vh;
     font-size: 1.4vw;
-    min-width: 50%;
-   
+    /* min-width: 50%; */
+    /* background-color: red; */
+    
   }
-
+  
+  .projectRegisterSheetContent td {
+    /* border: 1px solid white; */
+    min-height: 40vh;
+    min-width: 12vw;
+  }
+  
+  .projectRegisterSheetContent pre {
+    /* border: 1px solid white; */
+    float: left;
+    /* vertical-align: text-top; */
+    
+    /* margin-right: 1vw; */
+    min-width: 10vw;
+    /* background-color: blue; */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* margin-bottom: 10vh; */
+    margin-right: 1vw;
+  }
+  
   .clickButton {
-    position: relative;
+    position: absolute;
     border-radius: 15px;
     color: #99aab5;
     background-color: #33393d;
-    top: 12vh;
-    left: 7vw;
+    top: 36vh;
+    right: 1vw;
     height: 7vh;
     width: 20vw;
     font-size: 2.5vh;
-    }
-
-    #deltagere {
-      vertical-align: text-top;
+  }
+  
+  #deltagere {
+      margin-top: 0px;
+      /* vertical-align: text-top; */
     }
 
     .allUsers {
       background-color: aliceblue;
       border: 2px solid black;
       color: black;
-      max-width: 7vw;
+      /* max-width: 7vw; */
       text-align: center;
-      padding-bottom: 0.3vh;
-      padding-top: 0.3vh;
+      /* padding-bottom: 0.3vh; */
+      /* padding-top: 0.3vh; */
       user-select: none;
-      position: relative;
-      top: 0.1vh;
+      /* position: relative; */
+      /* top: 0.1vh; */
     }
     
     .selectedUser {

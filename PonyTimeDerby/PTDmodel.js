@@ -26,7 +26,7 @@ let projectStats = '';
 let hourStats = '';
 let thisMonthsHours = '';
 let thisMonthsSickHours = ['', '', '', ''];
-let workOrSick = 'sick';
+let workOrSick = 'work';
 
 
 let activeUser = 'Andreas';
@@ -35,7 +35,7 @@ const model = {
  
 navButtons: ['Time Registrering', 'Prosjekt Registrering', 'Oversikt Timer', 'Oversikt Prosjekter'],
 navView: ['hoursRegisterView', 'projectRegisterView', 'hoursOverviewView', 'projectOverviewView'],
-selectedPage: null,
+selectedPage: undefined,
 
 projectInfoRegister: {
     projectId: 'Lag en Prosjekt ID',
